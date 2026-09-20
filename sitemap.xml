@@ -2,39 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://YOUR-VERCEL-DOMAIN.vercel.app/</loc>
+    <loc>https://novanest-drab.vercel.app/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://YOUR-VERCEL-DOMAIN.vercel.app/about.html</loc>
+    <loc>https://novanest-drab.vercel.app/about.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-VERCEL-DOMAIN.vercel.app/services.html</loc>
+    <loc>https://novanest-drab.vercel.app/services.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://YOUR-VERCEL-DOMAIN.vercel.app/projects.html</loc>
+    <loc>https://novanest-drab.vercel.app/projects.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-VERCEL-DOMAIN.vercel.app/tutoring.html</loc>
+    <loc>https://novanest-drab.vercel.app/tutoring.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://YOUR-VERCEL-DOMAIN.vercel.app/join.html</loc>
+    <loc>https://novanest-drab.vercel.app/join.html</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://YOUR-VERCEL-DOMAIN.vercel.app/team.html</loc>
+    <loc>https://novanest-drab.vercel.app/team.html</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://YOUR-VERCEL-DOMAIN.vercel.app/careers.html</loc>
+    <loc>https://novanest-drab.vercel.app/careers.html</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://YOUR-VERCEL-DOMAIN.vercel.app/contact.html</loc>
+    <loc>https://novanest-drab.vercel.app/contact.html</loc>
     <priority>0.8</priority>
   </url>
 

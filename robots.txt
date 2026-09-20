@@ -12,4 +12,4 @@ Disallow: /admin/
 Disallow: /admin/*
 
 # Preferred sitemap
-Sitemap: https://YOUR-VERCEL-DOMAIN.vercel.app/sitemap.xml
+Sitemap: https://novanest-drab.vercel.app/sitemap.xml
