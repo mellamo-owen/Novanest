@@ -1,13 +1,6 @@
 ﻿// ============================================================
 // NOVANEST — Admin auth module
-// ------------------------------------------------------------
-// Handles:
-//   1. Login form submission (on /admin/login.html)
-//   2. Session guard (on every other admin page)
-//   3. Logout helper (dashboard sidebar)
-//
-// This file is imported by every admin page.
-// It auto-detects which environment it's running in.
+// Fixed: detects login page even with Vercel clean URLs
 // ============================================================
 
 import { supabase } from "../supabase.js";
@@ -38,12 +31,10 @@ if (loginForm) {
     setLoginLoading(loginForm, false);
 
     if (error) {
-      // Don't leak whether the email exists — generic message.
       showLoginMessage(loginForm, "error", "Invalid email or password.");
       return;
     }
 
-    // Confirm the logged-in user is actually an admin.
     const isAdmin = await checkIsAdmin(data.user.id);
     if (!isAdmin) {
       await supabase.auth.signOut();
@@ -55,19 +46,23 @@ if (loginForm) {
       return;
     }
 
-    // Success — redirect to dashboard.
     window.location.href = "dashboard.html";
   });
 }
 
-// ---------- 2. SESSION GUARD (runs on non-login admin pages) ----------
-const isAdminPage =
-  window.location.pathname.includes("/admin/") &&
-  !window.location.pathname.endsWith("/login.html");
+// ---------- 2. SESSION GUARD (fixed for clean URLs) ----------
+// Detect the login page robustly, whether the URL is:
+//   /admin/login.html  OR  /admin/login  OR  /admin/login/
+const path = window.location.pathname.toLowerCase();
+const isLoginPage =
+  path.endsWith("login") ||
+  path.endsWith("login.html") ||
+  path.endsWith("login/");
+
+const isAdminPage = path.includes("/admin/") && !isLoginPage;
 
 if (isAdminPage) {
   // Hide the page until we know who the user is.
-  // Prevents a flash of protected content before redirect.
   document.documentElement.style.visibility = "hidden";
   guardAdminPage();
 }
@@ -103,19 +98,12 @@ async function guardAdminPage() {
   // 3. Authorized — reveal the page.
   document.documentElement.style.visibility = "visible";
 
-  // Expose helpers to the page.
-  window.__novanestAdmin = {
-    user,
-    logout,
-    supabase
-  };
+  window.__novanestAdmin = { user, logout, supabase };
 
-  // Fill in the logged-in email wherever referenced.
   document.querySelectorAll("[data-admin-email]").forEach((el) => {
     el.textContent = user.email;
   });
 
-  // Wire up any logout buttons.
   document.querySelectorAll("[data-logout]").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -123,7 +111,6 @@ async function guardAdminPage() {
     });
   });
 
-  // Notify the page that it's ready.
   document.dispatchEvent(new CustomEvent("admin:ready", { detail: { user } }));
 }
 
@@ -148,7 +135,6 @@ async function logout() {
   window.location.replace("login.html");
 }
 
-// ---------- 4. SMALL UI HELPERS ----------
 function showLoginMessage(formEl, type, text) {
   let box = formEl.querySelector(".form-message");
   if (!box) {
