@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Novanest Labs - Login</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/labs.css" />
+</head>
+<body class="labs-login-page">
+  <main class="labs-login">
+    <div class="labs-login__card">
+      <a href="../index.html" class="labs-login__logo">NOVA<span>NEST</span></a>
+      <div class="labs-login__sub">Labs Workspace</div>
+      <h1 class="labs-login__title">Member Login</h1>
+      <p style="color:#6b7280;font-size:0.9rem;margin:0 0 1.25rem;">
+        Sign in with the email and password you received when you joined Novanest.
+      </p>
+      <form id="labs-login-form" class="form" novalidate>
+        <div>
+          <label for="labs-email">Email</label>
+          <input id="labs-email" name="email" type="email" autocomplete="username" required />
+        </div>
+        <div>
+          <label for="labs-password">Password</label>
+          <input id="labs-password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+      <p class="labs-login__hint">
+        Not a member yet? <a href="../join.html">Apply to join</a>
+      </p>
+    </div>
+  </main>
+  <script type="module" src="../js/labs/auth.js"></script>
+</body>
+</html>

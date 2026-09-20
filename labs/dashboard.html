@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Dashboard - Novanest Labs</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/labs.css" />
+</head>
+<body class="labs-body">
+
+  <header class="labs-topbar">
+    <a href="dashboard.html" class="labs-topbar__brand">NOVA<span>NEST</span> Labs</a>
+    <nav class="labs-topbar__nav">
+      <a href="dashboard.html" class="is-active">Dashboard</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="my-bids.html">My Bids</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="earnings.html">Earnings</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="labs-topbar__user">
+      <span>Signed in as <strong data-labs-name>...</strong></span>
+      <button data-labs-logout>Logout</button>
+    </div>
+  </header>
+
+  <main class="labs-main">
+    <div class="labs-hero">
+      <h1>Welcome to Novanest Labs</h1>
+      <p>Your workspace for tasks, bids, and earnings.</p>
+    </div>
+
+    <div id="change-password-notice"></div>
+
+    <div class="labs-grid" style="margin-bottom:1.5rem;">
+      <div class="labs-card">
+        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#6b7280;">Bids Submitted</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#0b1f3a;margin-top:0.3rem;" data-labs-field="stat-bids">0</div>
+      </div>
+      <div class="labs-card">
+        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#6b7280;">Active Assignments</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#0b1f3a;margin-top:0.3rem;" data-labs-field="stat-assignments">0</div>
+      </div>
+      <div class="labs-card">
+        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#6b7280;">Total Earned</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#065f46;margin-top:0.3rem;" data-labs-field="stat-earned">KSh 0</div>
+      </div>
+    </div>
+
+    <div class="labs-grid">
+      <div class="labs-card">
+        <h2>Your Profile</h2>
+        <dl class="labs-kv">
+          <dt>Name</dt><dd data-labs-field="full_name">...</dd>
+          <dt>Email</dt><dd data-labs-field="email">...</dd>
+          <dt>Role</dt><dd data-labs-field="role">...</dd>
+          <dt>Status</dt><dd data-labs-field="status">...</dd>
+          <dt>Joined</dt><dd data-labs-field="created_at">...</dd>
+        </dl>
+      </div>
+      <div class="labs-card">
+        <h2>Quick actions</h2>
+        <p style="color:#6b7280;">Jump to a section of your workspace:</p>
+        <p style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.75rem;">
+          <a class="btn btn--outline" href="tasks.html">Browse Tasks</a>
+          <a class="btn btn--outline" href="my-bids.html">My Bids</a>
+          <a class="btn btn--outline" href="assignments.html">Assignments</a>
+          <a class="btn btn--outline" href="earnings.html">Earnings</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <div class="labs-toast" id="labs-toast"></div>
+
+  <script type="module" src="../js/labs/auth.js"></script>
+  <script type="module" src="../js/labs/dashboard.js"></script>
+</body>
+</html>

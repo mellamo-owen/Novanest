@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Tasks - Novanest Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-topbar__title">Tasks</h1>
+      <div class="admin-topbar__user" data-admin-email>...</div>
+    </header>
+
+    <section class="admin-content">
+
+      <div class="admin-page-head">
+        <div>
+          <h2>Novanest Team Tasks</h2>
+          <p>Post work for approved members. Click a task to review its bids.</p>
+        </div>
+        <button class="btn btn--primary" id="btn-new-task">+ New Task</button>
+      </div>
+
+      <div class="admin-toolbar">
+        <input type="search" id="filter-search" placeholder="Search by title..." />
+        <select id="filter-status">
+          <option value="">All statuses</option>
+          <option>Open</option>
+          <option>In Progress</option>
+          <option>Closed</option>
+        </select>
+        <select id="filter-type">
+          <option value="">All types</option>
+          <option>Volunteer</option>
+          <option>Paid</option>
+        </select>
+        <select id="filter-category">
+          <option value="">All categories</option>
+          <option>Education</option>
+          <option>Finance</option>
+          <option>Business</option>
+          <option>Productivity</option>
+          <option>Community</option>
+          <option>Technology</option>
+        </select>
+      </div>
+
+      <div id="tasks-container">
+        <div class="admin-empty"><strong>Loading tasks...</strong></div>
+      </div>
+
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="task-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <h3 id="modal-title">New Task</h3>
+
+      <form class="form" id="task-form" novalidate>
+        <input type="hidden" id="t-id" name="id" />
+        <div>
+          <label for="t-title">Task title *</label>
+          <input id="t-title" name="title" type="text" required />
+        </div>
+        <div>
+          <label for="t-desc">Description</label>
+          <textarea id="t-desc" name="description"></textarea>
+        </div>
+        <div class="form__row form__row--2">
+          <div>
+            <label for="t-cat">Category</label>
+            <select id="t-cat" name="category">
+              <option value="">Choose...</option>
+              <option>Education</option>
+              <option>Finance</option>
+              <option>Business</option>
+              <option>Productivity</option>
+              <option>Community</option>
+              <option>Technology</option>
+            </select>
+          </div>
+          <div>
+            <label for="t-type">Task type</label>
+            <select id="t-type" name="task_type">
+              <option>Volunteer</option>
+              <option>Paid</option>
+            </select>
+          </div>
+        </div>
+        <div class="form__row form__row--2">
+          <div>
+            <label for="t-budget">Budget (KSh) - paid only</label>
+            <input id="t-budget" name="budget" type="number" min="0" step="1" />
+          </div>
+          <div>
+            <label for="t-slots">Slots (how many members)</label>
+            <input id="t-slots" name="slots" type="number" min="1" step="1" value="1" />
+          </div>
+        </div>
+        <div class="form__row form__row--2">
+          <div>
+            <label for="t-deadline">Deadline (optional)</label>
+            <input id="t-deadline" name="deadline" type="date" />
+          </div>
+          <div>
+            <label for="t-status">Status</label>
+            <select id="t-status" name="status">
+              <option>Open</option>
+              <option>In Progress</option>
+              <option>Closed</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
+          <button type="submit" class="btn btn--primary">Save Task</button>
+          <button type="button" class="btn btn--outline" id="btn-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="bids-modal-host"></div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { renderSidebar } from "./../js/admin/sidebar.js";
+    import "./../js/admin/auth.js";
+    import "./../js/admin/tasks.js";
+    renderSidebar("tasks.html");
+  </script>
+</body>
+</html>

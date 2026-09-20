@@ -8,14 +8,17 @@ export function renderSidebar(activePage) {
   const items = [
     { href: "dashboard.html",    label: "Dashboard" },
     { href: "projects.html",     label: "Projects" },
+     { href: "tasks.html",        label: "Tasks" },
     { href: "applications.html", label: "Team Applications" },
     { href: "team.html",         label: "Team Members" },
     { href: "careers.html",      label: "Careers" },
+    { href: "payouts.html",      label: "Payouts" },
     { href: "support.html",      label: "Support" },
     { href: "tutoring.html",     label: "Tutoring" },
     { href: "clients.html",      label: "Client Requests" },
     { href: "messages.html",     label: "Messages" },
     { href: "settings.html",     label: "Settings" }
+   
   ];
 
   const navHtml = items

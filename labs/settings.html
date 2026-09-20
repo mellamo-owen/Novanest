@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Settings - Novanest Labs</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/labs.css" />
+</head>
+<body class="labs-body">
+  <header class="labs-topbar">
+    <a href="dashboard.html" class="labs-topbar__brand">NOVA<span>NEST</span> Labs</a>
+    <nav class="labs-topbar__nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="settings.html" class="is-active">Settings</a>
+    </nav>
+    <div class="labs-topbar__user">
+      <span>Signed in as <strong data-labs-name>...</strong></span>
+      <button data-labs-logout>Logout</button>
+    </div>
+  </header>
+
+  <main class="labs-main">
+    <div class="labs-hero">
+      <h1>Account Settings</h1>
+      <p>Change your password and update your profile.</p>
+    </div>
+
+    <div class="labs-card">
+      <h2>Change Password</h2>
+      <p style="color:#6b7280;font-size:0.9rem;">
+        If you are logging in with a temporary password, change it here first.
+      </p>
+      <form id="change-password-form" class="form" style="margin-top:1rem;">
+        <div>
+          <label for="new-password">New Password</label>
+          <input id="new-password" name="new_password" type="password" minlength="8" required />
+        </div>
+        <div>
+          <label for="confirm-password">Confirm New Password</label>
+          <input id="confirm-password" name="confirm_password" type="password" minlength="8" required />
+        </div>
+        <button type="submit">Update Password</button>
+      </form>
+    </div>
+
+    <div class="labs-card">
+      <h2>Update Profile</h2>
+      <form id="update-profile-form" class="form" style="margin-top:1rem;">
+        <div>
+          <label for="profile-name">Full Name</label>
+          <input id="profile-name" name="full_name" type="text" required />
+        </div>
+        <div>
+          <label for="profile-role">Role</label>
+          <input id="profile-role" name="role" type="text" />
+        </div>
+        <button type="submit">Save Profile</button>
+      </form>
+    </div>
+  </main>
+
+  <div class="labs-toast" id="labs-toast"></div>
+  <script type="module" src="../js/labs/auth.js"></script>
+  <script type="module" src="../js/labs/settings.js"></script>
+</body>
+</html>

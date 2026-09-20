@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>My Bids - Novanest Labs</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/labs.css" />
+</head>
+<body class="labs-body">
+
+  <header class="labs-topbar">
+    <a href="dashboard.html" class="labs-topbar__brand">NOVA<span>NEST</span> Labs</a>
+    <nav class="labs-topbar__nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="my-bids.html" class="is-active">My Bids</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="earnings.html">Earnings</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="labs-topbar__user">
+      <span>Signed in as <strong data-labs-name>...</strong></span>
+      <button data-labs-logout>Logout</button>
+    </div>
+  </header>
+
+  <main class="labs-main">
+    <div class="labs-hero">
+      <h1>My Bids</h1>
+      <p>Track the proposals you have submitted.</p>
+    </div>
+
+    <div id="labs-bids-container">
+      <div class="labs-card"><strong>Loading bids...</strong></div>
+    </div>
+  </main>
+
+  <div class="labs-toast" id="labs-toast"></div>
+
+  <script type="module" src="../js/labs/auth.js"></script>
+  <script type="module" src="../js/labs/my-bids.js"></script>
+</body>
+</html>

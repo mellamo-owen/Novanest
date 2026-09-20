@@ -97,8 +97,9 @@ function cardHtml(a) {
     actions.push(`<button class="danger" data-action="reject" data-id="${a.id}">Reject</button>`);
   }
   if (a.status === "Approved") {
-    actions.push(`<button data-action="view-member" data-id="${a.id}">View Team Member</button>`);
-  }
+  actions.push(`<button data-action="view-member" data-id="${a.id}">View Team Member</button>`);
+  actions.push(`<button class="primary" data-action="invite" data-id="${a.id}">Invite to Labs</button>`);
+}
 
   return `
     <article class="app-card" data-id="${a.id}">
@@ -185,8 +186,9 @@ async function handleCardClick(e) {
     return;
   }
 
-  if (action === "view-member") {
-    window.location.href = "team.html";
+  if (action === "invite") {
+    await handleInvite(app);
+    return;
   }
 }
 
@@ -289,7 +291,115 @@ async function handleApproveSubmit(e) {
   renderList();
   showToast("Approved ✅ — added to team members");
 }
+// ============================================================
+// Invite to Novanest Labs
+// ============================================================
+async function handleInvite(app) {
+  if (!app.email) {
+    showToast("This application has no email address", "error");
+    return;
+  }
 
+  if (!confirm("Create a Novanest Labs account for " + app.full_name + " (" + app.email + ")?")) {
+    return;
+  }
+
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData && sessionData.session ? sessionData.session.access_token : null;
+  if (!token) {
+    showToast("Session expired. Please log in again.", "error");
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      "https://namwgcigxxnmtbgzmzcv.supabase.co/functions/v1/invite-member",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({
+          email: app.email,
+          full_name: app.full_name,
+          role: app.role || "Team Member"
+        })
+      }
+    );
+
+    const result = await res.json();
+
+    if (!res.ok || result.error) {
+      showToast("Invite failed: " + (result.error || "Unknown error"), "error");
+      console.error("Invite error:", result);
+      return;
+    }
+
+    showInviteModal(result, app);
+  } catch (err) {
+    console.error("Invite request failed:", err);
+    showToast("Invite request failed. Check console.", "error");
+  }
+}
+
+function showInviteModal(result, app) {
+  const loginUrl = result.login_url;
+  const emailText =
+    "Subject: Welcome to Novanest Digital Solutions\n\n" +
+    "Hi " + (app.full_name || "there") + ",\n\n" +
+    "Congratulations! Your application to join Novanest Digital Solutions has been approved.\n\n" +
+    "You now have access to the Novanest Labs workspace, where you can view tasks, submit bids, and take on projects.\n\n" +
+    "Your login details:\n" +
+    "  Email: " + result.email + "\n" +
+    "  Temporary password: " + result.temp_password + "\n\n" +
+    "Log in here: " + loginUrl + "\n\n" +
+    "For security, please change your password after your first login.\n\n" +
+    "Welcome to the team.\n\n" +
+    "Mickowen Khaseke\n" +
+    "Founder & CEO\n" +
+    "Novanest Digital Solutions";
+
+  const modalHtml =
+    '<div class="modal-backdrop" id="invite-modal" style="position:fixed;inset:0;background:rgba(15,23,42,0.55);display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;z-index:100;">' +
+      '<div class="modal" style="background:#fff;border-radius:16px;max-width:640px;width:100%;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.3);">' +
+        '<h3 style="margin:0 0 1rem;font-size:1.15rem;color:#0b1f3a;">Account Created</h3>' +
+        '<p style="color:#6b7280;font-size:0.9rem;margin-top:0;">' +
+          escapeHtml(result.email) + ' can now log in to Novanest Labs. Copy the email below and send it from your own inbox.' +
+        '</p>' +
+        '<div style="background:#f5f8fc;border:1px solid #e5e7eb;border-radius:10px;padding:1rem;margin:1rem 0;font-family:monospace;font-size:0.85rem;white-space:pre-wrap;word-break:break-word;max-height:280px;overflow-y:auto;">' +
+          escapeHtml(emailText) +
+        '</div>' +
+        '<div style="display:flex;gap:0.5rem;flex-wrap:wrap;">' +
+          '<button class="btn btn--primary" id="copy-invite-email" style="background:#0ea5e9;color:#fff;border:none;padding:0.65rem 1rem;border-radius:10px;font-weight:700;cursor:pointer;">Copy Email Template</button>' +
+          '<button class="btn btn--outline" id="close-invite-modal" style="background:#fff;color:#0b1f3a;border:1px solid #0b1f3a;padding:0.65rem 1rem;border-radius:10px;font-weight:700;cursor:pointer;">Close</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+
+  const wrapper = document.createElement("div");
+  wrapper.innerHTML = modalHtml;
+  document.body.appendChild(wrapper);
+
+  document.getElementById("copy-invite-email").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(emailText);
+      showToast("Email template copied to clipboard", "success");
+    } catch (err) {
+      const ta = document.createElement("textarea");
+      ta.value = emailText;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      showToast("Email template copied", "success");
+    }
+  });
+
+  document.getElementById("close-invite-modal").addEventListener("click", () => {
+    wrapper.remove();
+  });
+}
 // ============================================================
 // 5. UTILS
 // ============================================================
