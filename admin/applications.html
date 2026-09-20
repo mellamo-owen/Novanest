@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Team Applications — Novanest Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-topbar__title">Team Applications</h1>
+      <div class="admin-topbar__user" data-admin-email>…</div>
+    </header>
+
+    <section class="admin-content">
+
+      <div class="admin-page-head">
+        <div>
+          <h2>Applications Received</h2>
+          <p>Review and approve applicants. Approved applicants become team members.</p>
+        </div>
+      </div>
+
+      <div class="admin-toolbar">
+        <input type="search" id="filter-search" placeholder="Search by name or email…" />
+        <select id="filter-status">
+          <option value="">All statuses</option>
+          <option>Pending</option>
+          <option>Under Review</option>
+          <option>Approved</option>
+          <option>Rejected</option>
+        </select>
+        <select id="filter-role">
+          <option value="">All roles</option>
+          <option>Developer</option>
+          <option>Tutor</option>
+          <option>Designer</option>
+          <option>Advertiser / Marketer</option>
+          <option>Content Creator</option>
+          <option>Media / Video</option>
+          <option>Business / Outreach</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div id="applications-container">
+        <div class="admin-empty"><strong>Loading applications…</strong></div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Modal for "Approve" details -->
+  <div class="modal-backdrop" id="approve-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <h3>Approve &amp; Create Team Member</h3>
+      <p style="color:#6b7280;font-size:0.9rem;margin-top:0;">
+        Confirm the details that will appear on the public team page.
+        You can edit them further in <strong>Team Members</strong>.
+      </p>
+
+      <form class="form" id="approve-form">
+        <input type="hidden" id="ap-id" />
+
+        <div class="form__row form__row--2">
+          <div>
+            <label for="ap-name">Name *</label>
+            <input id="ap-name" type="text" required />
+          </div>
+          <div>
+            <label for="ap-role">Role *</label>
+            <input id="ap-role" type="text" required />
+          </div>
+        </div>
+
+        <div>
+          <label for="ap-bio">Short bio</label>
+          <textarea id="ap-bio" placeholder="A short paragraph for the team page"></textarea>
+        </div>
+
+        <div>
+          <label for="ap-skills">Skills (comma-separated)</label>
+          <input id="ap-skills" type="text" placeholder="JavaScript, Python, UI Design" />
+        </div>
+
+        <div>
+          <label for="ap-photo">Photo URL (optional)</label>
+          <input id="ap-photo" type="url" placeholder="https://" />
+        </div>
+
+        <div class="form__row form__row--2">
+          <div>
+            <label for="ap-github">GitHub</label>
+            <input id="ap-github" type="url" placeholder="https://" />
+          </div>
+          <div>
+            <label for="ap-linkedin">LinkedIn</label>
+            <input id="ap-linkedin" type="url" placeholder="https://" />
+          </div>
+        </div>
+
+        <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
+          <button type="submit" class="btn btn--primary">Approve &amp; Add to Team</button>
+          <button type="button" class="btn btn--outline" id="ap-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { renderSidebar } from "./../js/admin/sidebar.js";
+    import "./../js/admin/auth.js";
+    import "./../js/admin/applications.js";
+    renderSidebar("applications.html");
+  </script>
+</body>
+</html>

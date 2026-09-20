@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Support — Novanest Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-topbar__title">Support</h1>
+      <div class="admin-topbar__user" data-admin-email>…</div>
+    </header>
+
+    <section class="admin-content">
+
+      <div class="admin-page-head">
+        <div>
+          <h2>Support Contributions</h2>
+          <p>Verify or reject submissions manually. Only verified contributions count towards the totals.</p>
+        </div>
+      </div>
+
+      <!-- KPI strip -->
+      <div class="support-kpis">
+        <div class="support-kpi support-kpi--accent">
+          <div class="support-kpi__label">Total Verified</div>
+          <div class="support-kpi__value" id="kpi-total">KSh 0</div>
+        </div>
+        <div class="support-kpi">
+          <div class="support-kpi__label">Verified Supporters</div>
+          <div class="support-kpi__value" id="kpi-supporters">0</div>
+        </div>
+        <div class="support-kpi">
+          <div class="support-kpi__label">This Month (Verified)</div>
+          <div class="support-kpi__value" id="kpi-month">KSh 0</div>
+        </div>
+        <div class="support-kpi support-kpi--warn">
+          <div class="support-kpi__label">Pending</div>
+          <div class="support-kpi__value" id="kpi-pending">0</div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="admin-toolbar">
+        <input type="search" id="filter-search" placeholder="Search by name or reference…" />
+        <select id="filter-status">
+          <option value="">All statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="Verified">Verified</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </div>
+
+      <div id="support-container">
+        <div class="admin-empty"><strong>Loading…</strong></div>
+      </div>
+
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { renderSidebar } from "./../js/admin/sidebar.js";
+    import "./../js/admin/auth.js";
+    import "./../js/admin/support.js";
+    renderSidebar("support.html");
+  </script>
+</body>
+</html>

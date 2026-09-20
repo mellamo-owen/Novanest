@@ -1,0 +1,682 @@
+﻿/* ============================================================
+   NOVANEST — Admin styles
+   ============================================================ */
+
+/* ---------- Login page ---------- */
+.admin-login-page {
+  background: linear-gradient(135deg, #0b1f3a 0%, #123a63 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 0;
+}
+
+.admin-login {
+  width: 100%;
+  max-width: 420px;
+}
+
+.admin-login__card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.admin-login__logo {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0b1f3a;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+}
+.admin-login__logo span { color: #0ea5e9; }
+
+.admin-login__title {
+  font-size: 1.4rem;
+  margin: 0 0 0.25rem;
+}
+
+.admin-login__subtitle {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-login__hint {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* ---------- Admin shell ---------- */
+.admin-body {
+  background: #f5f8fc;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background: #0b1f3a;
+  color: #cbd5e1;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-sidebar__brand {
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.admin-sidebar__brand span { color: #0ea5e9; }
+.admin-sidebar__brand em {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.admin-nav a {
+  color: #cbd5e1;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.admin-nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  text-decoration: none;
+}
+.admin-nav a.is-active {
+  background: #0ea5e9;
+  color: #fff;
+}
+
+.admin-sidebar__footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+}
+.admin-sidebar__email {
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+  word-break: break-all;
+}
+.admin-sidebar__email strong { color: #fff; font-weight: 600; }
+
+.admin-sidebar__footer .btn--outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.admin-sidebar__footer .btn--outline:hover {
+  background: #fff;
+  color: #0b1f3a;
+}
+
+.admin-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.admin-topbar {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.admin-topbar__title {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #0b1f3a;
+}
+.admin-topbar__user {
+  font-size: 0.85rem;
+  color: #6b7280;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-content {
+  padding: 1.5rem;
+}
+
+.admin-welcome {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 720px;
+}
+.admin-welcome h2 { margin-top: 0; color: #0b1f3a; }
+.admin-welcome p { color: #6b7280; }
+
+.admin-stats {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin-top: 1.5rem;
+}
+
+.admin-stat {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+.admin-stat__label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.admin-stat__value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0b1f3a;
+  margin-top: 0.35rem;
+}
+
+@media (min-width: 900px) {
+  .admin-body { grid-template-columns: 240px 1fr; }
+  .admin-stats { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1200px) {
+  .admin-stats { grid-template-columns: repeat(4, 1fr); }
+}
+/* ============================================================
+   STAGE 7 — Dashboard enhancements
+   ============================================================ */
+
+/* Welcome banner at top of dashboard */
+.dash-hero {
+  background: linear-gradient(135deg, #0b1f3a 0%, #123a63 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.5rem;
+}
+.dash-hero h2 {
+  color: #fff;
+  margin: 0 0 0.25rem;
+  font-size: 1.35rem;
+}
+.dash-hero p {
+  color: #cbd5e1;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Section title inside content area */
+.dash-section {
+  margin-bottom: 2rem;
+}
+.dash-section__title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--color-primary);
+  margin: 0 0 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.dash-section__title small {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+/* Stat cards */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1100px) {
+  .stat-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+.stat-card__icon {
+  font-size: 1.35rem;
+  margin-bottom: 0.2rem;
+}
+.stat-card__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-muted);
+}
+.stat-card__value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+.stat-card--accent {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent) inset;
+}
+.stat-card--warn {
+  border-color: #f59e0b;
+}
+.stat-card--ok {
+  border-color: #10b981;
+}
+
+/* Recent activity table */
+.recent-table {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.recent-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.recent-table th,
+.recent-table td {
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.recent-table th {
+  background: var(--color-bg-soft);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+}
+.recent-table tr:last-child td { border-bottom: none; }
+.recent-table__empty {
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+/* Badge for statuses in tables */
+.dash-badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.dash-badge--pending  { background: #fef3c7; color: #92400e; }
+.dash-badge--new      { background: #dbeafe; color: #1e40af; }
+.dash-badge--verified { background: #d1fae5; color: #065f46; }
+.dash-badge--rejected { background: #fee2e2; color: #991b1b; }
+
+/* Loading skeleton */
+.dash-loading {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .dash-loading { grid-template-columns: 1fr 1fr; }
+}
+.dash-skeleton {
+  height: 100px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(90deg, #eef2f7 0%, #f8fafc 50%, #eef2f7 100%);
+  background-size: 200% 100%;
+  animation: dash-shimmer 1.2s infinite;
+}
+@keyframes dash-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ============================================================
+   STAGE 9 — Applications + Team admin
+   ============================================================ */
+
+/* Application cards */
+.app-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.app-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  transition: box-shadow 0.15s ease;
+}
+.app-card:hover { box-shadow: var(--shadow-md); }
+
+.app-card__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+  align-items: flex-start;
+}
+
+.app-card__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.app-card__meta {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.2rem;
+}
+
+.app-card__meta a { color: var(--color-accent-dark); }
+
+.app-card__role {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.75rem;
+}
+
+.app-card__section {
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+}
+.app-card__section h4 {
+  margin: 0 0 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+}
+.app-card__section p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.app-card__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+.app-card__actions button {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--color-text);
+}
+.app-card__actions button:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-dark);
+}
+.app-card__actions button.primary {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+.app-card__actions button.primary:hover {
+  background: var(--color-accent-dark);
+  color: #fff;
+}
+.app-card__actions button.danger:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+.app-card__actions button.success {
+  background: #10b981;
+  color: #fff;
+  border-color: #10b981;
+}
+.app-card__actions button.success:hover {
+  background: #059669;
+  color: #fff;
+}
+
+/* Status badges for applications */
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.status-badge--pending   { background: #fef3c7; color: #92400e; }
+.status-badge--review    { background: #dbeafe; color: #1e40af; }
+.status-badge--approved  { background: #d1fae5; color: #065f46; }
+.status-badge--rejected  { background: #fee2e2; color: #991b1b; }
+
+/* ============================================================
+   STAGE 10 — Support verification
+   ============================================================ */
+
+/* KPI strip at top of support page */
+.support-kpis {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 640px) {
+  .support-kpis { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1100px) {
+  .support-kpis { grid-template-columns: repeat(4, 1fr); }
+}
+
+.support-kpi {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+.support-kpi__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-muted);
+}
+.support-kpi__value {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-top: 0.3rem;
+  line-height: 1.1;
+}
+.support-kpi--accent { border-color: #10b981; }
+.support-kpi--accent .support-kpi__value { color: #047857; }
+.support-kpi--warn { border-color: #f59e0b; }
+.support-kpi--warn .support-kpi__value { color: #b45309; }
+
+/* ============================================================
+   STAGE 11 — Tutoring / Clients / Messages / Careers / Settings
+   ============================================================ */
+
+/* Message/detail card (used for tutoring, clients, messages) */
+.msg-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  transition: box-shadow 0.15s ease;
+  margin-bottom: 1rem;
+}
+.msg-card:hover { box-shadow: var(--shadow-md); }
+
+.msg-card__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 0.6rem;
+}
+
+.msg-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+}
+.msg-card__meta {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.15rem;
+}
+.msg-card__meta a { color: var(--color-accent-dark); }
+
+.msg-card__body {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.msg-card__body p { margin: 0 0 0.4rem; }
+
+.msg-card__kv {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+  font-size: 0.88rem;
+  margin-top: 0.5rem;
+}
+.msg-card__kv strong {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.msg-card__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-border);
+}
+.msg-card__actions button,
+.msg-card__actions a {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.msg-card__actions button:hover,
+.msg-card__actions a:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-dark);
+  text-decoration: none;
+}
+.msg-card__actions button.primary {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+.msg-card__actions button.primary:hover {
+  background: var(--color-accent-dark);
+  color: #fff;
+}
+.msg-card__actions button.danger:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+/* Status options inline select */
+.inline-select {
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  font-size: 0.82rem;
+  font-family: inherit;
+  background: #fff;
+}

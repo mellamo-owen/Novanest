@@ -1,0 +1,15 @@
+﻿# ============================================================
+# robots.txt — tells search engines what to crawl
+# ============================================================
+
+User-agent: *
+Allow: /
+
+# Don't index the admin area
+Disallow: /admin/
+
+# Don't index private endpoints
+Disallow: /admin/*
+
+# Preferred sitemap
+Sitemap: https://YOUR-VERCEL-DOMAIN.vercel.app/sitemap.xml

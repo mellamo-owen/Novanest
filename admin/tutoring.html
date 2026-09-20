@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Tutoring Inquiries — Novanest Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-topbar__title">Tutoring Inquiries</h1>
+      <div class="admin-topbar__user" data-admin-email>…</div>
+    </header>
+
+    <section class="admin-content">
+      <div class="admin-page-head">
+        <div>
+          <h2>Tutoring Requests</h2>
+          <p>Submissions from the public tutoring form.</p>
+        </div>
+      </div>
+
+      <div class="admin-toolbar">
+        <input type="search" id="filter-search" placeholder="Search by name or email…" />
+        <select id="filter-status">
+          <option value="">All statuses</option>
+          <option>New</option>
+          <option>Contacted</option>
+          <option>Closed</option>
+        </select>
+      </div>
+
+      <div id="list-container">
+        <div class="admin-empty"><strong>Loading…</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { renderSidebar } from "./../js/admin/sidebar.js";
+    import "./../js/admin/auth.js";
+    import "./../js/admin/tutoring.js";
+    renderSidebar("tutoring.html");
+  </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Novanest Digital Solutions</title>
+  <meta name="description" content="Contact Novanest for websites, tutoring, collaboration, or to support our projects." />
+  <link rel="canonical" href="https://YOUR-VERCEL-DOMAIN.vercel.app/contact.html" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Novanest Digital Solutions" />
+  <meta property="og:title" content="Contact — Novanest Digital Solutions" />
+  <meta property="og:description" content="Contact Novanest for websites, tutoring, collaboration, or to support our projects." />
+  <meta property="og:url" content="https://YOUR-VERCEL-DOMAIN.vercel.app/contact.html" />
+  <meta property="og:image" content="https://YOUR-VERCEL-DOMAIN.vercel.app/assets/images/og-cover.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact — Novanest Digital Solutions" />
+  <meta name="twitter:description" content="Contact Novanest for websites, tutoring, collaboration, or to support our projects." />
+  <meta name="twitter:image" content="https://YOUR-VERCEL-DOMAIN.vercel.app/assets/images/og-cover.png" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/icons/favicon.svg" />
+  <meta name="theme-color" content="#0b1f3a" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="nav__logo">NOVA<span>NEST</span></a>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <ul class="nav__menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="tutoring.html">Tutoring</a></li>
+        <li><a href="join.html">Join Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Contact Novanest</h1>
+      <p>General questions, website requests, and support submissions.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT FORM ============ -->
+  <section class="section" id="contact-form-section">
+    <div class="container">
+      <h2 class="section__title">Send us a message</h2>
+      <p class="section__subtitle">We usually respond within 1–2 business days.</p>
+
+      <form class="form" id="contact-form" novalidate>
+        <div class="form__row form__row--2">
+          <div>
+            <label for="c-name">Your name *</label>
+            <input id="c-name" name="name" type="text" required />
+          </div>
+          <div>
+            <label for="c-email">Email *</label>
+            <input id="c-email" name="email" type="email" required />
+          </div>
+        </div>
+
+        <div class="form__row form__row--2">
+          <div>
+            <label for="c-phone">Phone (optional)</label>
+            <input id="c-phone" name="phone" type="tel" />
+          </div>
+          <div>
+            <label for="c-subject">Subject</label>
+            <input id="c-subject" name="subject" type="text" />
+          </div>
+        </div>
+
+        <div>
+          <label for="c-message">Message *</label>
+          <textarea id="c-message" name="message" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ CLIENT REQUEST FORM ============ -->
+  <section class="section section--soft" id="client-form-section">
+    <div class="container">
+      <h2 class="section__title">Request a Website</h2>
+      <p class="section__subtitle">Tell us about your business and what you need.</p>
+
+      <form class="form" id="client-form" novalidate>
+        <div class="form__row form__row--2">
+          <div>
+            <label for="cl-name">Full name *</label>
+            <input id="cl-name" name="name" type="text" required />
+          </div>
+          <div>
+            <label for="cl-email">Email *</label>
+            <input id="cl-email" name="email" type="email" required />
+          </div>
+        </div>
+
+        <div class="form__row form__row--2">
+          <div>
+            <label for="cl-phone">Phone / WhatsApp *</label>
+            <input id="cl-phone" name="phone" type="tel" required />
+          </div>
+          <div>
+            <label for="cl-business">Business name</label>
+            <input id="cl-business" name="business_name" type="text" />
+          </div>
+        </div>
+
+        <div class="form__row form__row--2">
+          <div>
+            <label for="cl-btype">Type of business</label>
+            <input id="cl-btype" name="business_type" type="text" placeholder="e.g. restaurant, salon, school" />
+          </div>
+          <div>
+            <label for="cl-service">Service needed</label>
+            <select id="cl-service" name="service">
+              <option value="">— Choose —</option>
+              <option>Business website</option>
+              <option>Landing page</option>
+              <option>Portfolio website</option>
+              <option>Restaurant website</option>
+              <option>School website</option>
+              <option>Website maintenance</option>
+              <option>Custom web application</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="cl-budget">Budget range</label>
+          <select id="cl-budget" name="budget">
+            <option value="">— Choose —</option>
+            <option>Under KSh 10,000</option>
+            <option>KSh 10,000 – 30,000</option>
+            <option>KSh 30,000 – 60,000</option>
+            <option>KSh 60,000 – 100,000</option>
+            <option>Above KSh 100,000</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="cl-desc">Project description *</label>
+          <textarea id="cl-desc" name="description" required></textarea>
+        </div>
+
+        <button type="submit">Send Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ SUPPORT FORM ============ -->
+  <section class="section" id="support">
+    <div class="container">
+      <h2 class="section__title">Support Our Projects </h2>
+      <p class="section__subtitle">
+        Send a contribution via M-Pesa, then submit your transaction code below.
+        We verify each contribution manually.
+      </p>
+
+      <div class="support-box" style="margin-bottom:2rem;">
+        <p style="margin:0;">Send your contribution to:</p>
+        <div class="support-box__mpesa" data-config="mpesaNumber">07XX XXX XXX</div>
+        <p class="support-box__note">
+          Name: <span data-config="mpesaName">Novanest Digital Solutions</span><br />
+          Minimum support: KSh <span data-config="supportMinimum">10</span>
+        </p>
+      </div>
+
+      <form class="form" id="support-form" novalidate>
+        <div class="form__row form__row--2">
+          <div>
+            <label for="s-name">Your name *</label>
+            <input id="s-name" name="name" type="text" required />
+          </div>
+          <div>
+            <label for="s-amount">Amount (KSh) *</label>
+            <input id="s-amount" name="amount" type="number" min="10" step="1" required />
+          </div>
+        </div>
+
+        <div>
+          <label for="s-code">M-Pesa transaction / reference code *</label>
+          <input id="s-code" name="transaction_code" type="text" required />
+        </div>
+
+        <div>
+          <label for="s-message">Optional message</label>
+          <textarea id="s-message" name="message"></textarea>
+        </div>
+
+        <button type="submit">Submit Support</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__title" data-config="companyName">Novanest Digital Solutions</div>
+          <p data-config="tagline">Build. Learn. Innovate. Grow.</p>
+        </div>
+        <div>
+          <div class="footer__title">Explore</div>
+          <ul class="footer__links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__title">Connect</div>
+          <ul class="footer__links">
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="join.html">Join Us</a></li>
+            <li><a href="tutoring.html">Tutoring</a></li>
+            <li><a href="contact.html#support">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        © <span data-year>2026</span> Novanest Digital Solutions. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/contact.js"></script>
+  <script type="module" src="js/support.js"></script>
+</body>
+</html>

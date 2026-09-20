@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Tutoring — Novanest</title>
+  <meta name="description" content="Request online tutoring in Computer Science, Mathematics and Physics." />
+  <link rel="canonical" href="https://YOUR-VERCEL-DOMAIN.vercel.app/tutoring.html" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Novanest Digital Solutions" />
+  <meta property="og:title" content="Request Tutoring — Novanest" />
+  <meta property="og:description" content="Request online tutoring in Computer Science, Mathematics and Physics." />
+  <meta property="og:url" content="https://YOUR-VERCEL-DOMAIN.vercel.app/tutoring.html" />
+  <meta property="og:image" content="https://YOUR-VERCEL-DOMAIN.vercel.app/assets/images/og-cover.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Request Tutoring — Novanest" />
+  <meta name="twitter:description" content="Request online tutoring in Computer Science, Mathematics and Physics." />
+  <meta name="twitter:image" content="https://YOUR-VERCEL-DOMAIN.vercel.app/assets/images/og-cover.png" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/icons/favicon.svg" />
+  <meta name="theme-color" content="#0b1f3a" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="nav__logo">NOVA<span>NEST</span></a>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <ul class="nav__menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="tutoring.html">Tutoring</a></li>
+        <li><a href="join.html">Join Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Request Tutoring</h1>
+      <p>Tell us what you need help with. We'll respond with a plan and available times.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Tutoring Inquiry</h2>
+      <p class="section__subtitle">
+        Novanest provides tutoring, explanations, revision and academic guidance.
+        We do not complete graded work on behalf of students.
+      </p>
+
+      <form class="form" id="tutoring-form" novalidate>
+        <div class="form__row form__row--2">
+          <div>
+            <label for="t-name">Student name *</label>
+            <input id="t-name" name="student_name" type="text" required />
+          </div>
+          <div>
+            <label for="t-email">Email *</label>
+            <input id="t-email" name="email" type="email" required />
+          </div>
+        </div>
+
+        <div class="form__row form__row--2">
+          <div>
+            <label for="t-country">Country</label>
+            <input id="t-country" name="country" type="text" />
+          </div>
+          <div>
+            <label for="t-subject">Subject *</label>
+            <select id="t-subject" name="subject" required>
+              <option value="">— Choose —</option>
+              <option>Computer Science</option>
+              <option>Programming (Python, C, C++, Java)</option>
+              <option>Web Development (HTML, CSS, JavaScript)</option>
+              <option>Git &amp; GitHub</option>
+              <option>Linux fundamentals</option>
+              <option>Mathematics</option>
+              <option>Physics</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form__row form__row--2">
+          <div>
+            <label for="t-level">Current level</label>
+            <select id="t-level" name="level">
+              <option value="">— Choose —</option>
+              <option>High school</option>
+              <option>Undergraduate</option>
+              <option>Postgraduate</option>
+              <option>Self-taught / hobbyist</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="t-time">Preferred session time</label>
+            <input id="t-time" name="preferred_time" type="text" placeholder="e.g. weekdays 6–8pm" />
+          </div>
+        </div>
+
+        <div>
+          <label for="t-topic">Topic needing help</label>
+          <input id="t-topic" name="topic" type="text" placeholder="e.g. recursion, integration, Newton's laws" />
+        </div>
+
+        <div>
+          <label for="t-message">Message</label>
+          <textarea id="t-message" name="message"></textarea>
+        </div>
+
+        <button type="submit">Send Tutoring Request</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__title" data-config="companyName">Novanest Digital Solutions</div>
+          <p data-config="tagline">Build. Learn. Innovate. Grow.</p>
+        </div>
+        <div>
+          <div class="footer__title">Explore</div>
+          <ul class="footer__links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__title">Connect</div>
+          <ul class="footer__links">
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="join.html">Join Us</a></li>
+            <li><a href="tutoring.html">Tutoring</a></li>
+            <li><a href="contact.html#support">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        © <span data-year>2026</span> Novanest Digital Solutions. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/tutoring.js"></script>
+</body>
+</html>

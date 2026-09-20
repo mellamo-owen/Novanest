@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>CEO Login — Novanest</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-login-page">
+
+  <main class="admin-login">
+    <div class="admin-login__card">
+      <a href="../index.html" class="admin-login__logo">NOVA<span>NEST</span></a>
+      <h1 class="admin-login__title">CEO Login</h1>
+      <p class="admin-login__subtitle">Private access for Novanest administration.</p>
+
+      <form id="login-form" class="form" novalidate>
+        <div>
+          <label for="login-email">Email</label>
+          <input id="login-email" name="email" type="email" autocomplete="username" required />
+        </div>
+        <div>
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+
+      <p class="admin-login__hint">
+        Not the CEO? <a href="../index.html">Return to the public site →</a>
+      </p>
+    </div>
+  </main>
+
+  <script type="module" src="../js/admin/auth.js"></script>
+</body>
+</html>

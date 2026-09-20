@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Client Requests — Novanest Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-topbar__title">Client Requests</h1>
+      <div class="admin-topbar__user" data-admin-email>…</div>
+    </header>
+
+    <section class="admin-content">
+      <div class="admin-page-head">
+        <div>
+          <h2>Website Requests</h2>
+          <p>Submissions from the public "Request a Website" form.</p>
+        </div>
+      </div>
+
+      <div class="admin-toolbar">
+        <input type="search" id="filter-search" placeholder="Search by name, business, or email…" />
+        <select id="filter-status">
+          <option value="">All statuses</option>
+          <option>New</option>
+          <option>Contacted</option>
+          <option>Quoted</option>
+          <option>Closed</option>
+        </select>
+      </div>
+
+      <div id="list-container">
+        <div class="admin-empty"><strong>Loading…</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { renderSidebar } from "./../js/admin/sidebar.js";
+    import "./../js/admin/auth.js";
+    import "./../js/admin/clients.js";
+    renderSidebar("clients.html");
+  </script>
+</body>
+</html>

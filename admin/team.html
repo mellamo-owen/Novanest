@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Team Members — Novanest Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-topbar__title">Team Members</h1>
+      <div class="admin-topbar__user" data-admin-email>…</div>
+    </header>
+
+    <section class="admin-content">
+
+      <div class="admin-page-head">
+        <div>
+          <h2>Public Team</h2>
+          <p>Add, edit, hide, or remove team members shown on the public team page.</p>
+        </div>
+        <button class="btn btn--primary" id="btn-new-member">+ Add Member</button>
+      </div>
+
+      <div class="admin-toolbar">
+        <input type="search" id="filter-search" placeholder="Search by name…" />
+        <select id="filter-active">
+          <option value="">All members</option>
+          <option value="true">Visible</option>
+          <option value="false">Hidden</option>
+        </select>
+      </div>
+
+      <div id="team-container">
+        <div class="admin-empty"><strong>Loading team…</strong></div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="member-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true">
+      <h3 id="modal-title">Add Team Member</h3>
+
+      <form class="form" id="member-form" novalidate>
+        <input type="hidden" id="m-id" />
+
+        <div class="form__row form__row--2">
+          <div>
+            <label for="m-name">Name *</label>
+            <input id="m-name" type="text" required />
+          </div>
+          <div>
+            <label for="m-role">Role *</label>
+            <input id="m-role" type="text" placeholder="e.g. Frontend Developer" required />
+          </div>
+        </div>
+
+        <div>
+          <label for="m-bio">Short bio</label>
+          <textarea id="m-bio"></textarea>
+        </div>
+
+        <div>
+          <label for="m-skills">Skills (comma-separated)</label>
+          <input id="m-skills" type="text" placeholder="JavaScript, Python, UI Design" />
+        </div>
+
+        <div>
+          <label>Profile Photo</label>
+          <div class="image-upload">
+            <div class="image-upload__preview" id="photo-preview">No photo</div>
+            <div>
+              <input type="file" id="m-photo-file" accept="image/*" />
+              <div style="font-size:0.75rem;color:#6b7280;margin-top:0.3rem;">
+                Square image recommended · under 1 MB
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="m-photo-url" />
+        </div>
+
+        <div class="form__row form__row--2">
+          <div>
+            <label for="m-github">GitHub URL</label>
+            <input id="m-github" type="url" placeholder="https://" />
+          </div>
+          <div>
+            <label for="m-linkedin">LinkedIn URL</label>
+            <input id="m-linkedin" type="url" placeholder="https://" />
+          </div>
+        </div>
+
+        <div>
+          <label for="m-portfolio">Portfolio URL</label>
+          <input id="m-portfolio" type="url" placeholder="https://" />
+        </div>
+
+        <label style="display:flex;align-items:center;gap:0.4rem;font-weight:600;">
+          <input type="checkbox" id="m-active" checked /> Visible on public team page
+        </label>
+
+        <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
+          <button type="submit" class="btn btn--primary">Save Member</button>
+          <button type="button" class="btn btn--outline" id="m-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { renderSidebar } from "./../js/admin/sidebar.js";
+    import "./../js/admin/auth.js";
+    import "./../js/admin/team.js";
+    renderSidebar("team.html");
+  </script>
+</body>
+</html>

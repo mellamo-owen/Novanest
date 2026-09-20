@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Settings — Novanest Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-topbar__title">Settings</h1>
+      <div class="admin-topbar__user" data-admin-email>…</div>
+    </header>
+
+    <section class="admin-content">
+      <div class="admin-page-wrap" style="max-width:720px;">
+        <div class="admin-welcome">
+          <h2>Company Settings</h2>
+          <p>
+            Some settings are stored in <code>js/config.js</code> for now —
+            they will be moved here in a future update. This page documents
+            where each one lives.
+          </p>
+        </div>
+
+        <div class="admin-welcome" style="margin-top:1.5rem;">
+          <h3>Currently in <code>js/config.js</code></h3>
+          <table class="admin-table" style="margin-top:0.75rem;">
+            <thead><tr><th>Setting</th><th>Where to change it</th></tr></thead>
+            <tbody>
+              <tr><td>Company name</td><td><code>js/config.js → companyName</code></td></tr>
+              <tr><td>M-Pesa number</td><td><code>js/config.js → mpesaNumber</code></td></tr>
+              <tr><td>M-Pesa account name</td><td><code>js/config.js → mpesaName</code></td></tr>
+              <tr><td>Minimum support</td><td><code>js/config.js → supportMinimum</code></td></tr>
+              <tr><td>Company email</td><td><code>js/config.js → email</code></td></tr>
+              <tr><td>WhatsApp number</td><td><code>js/config.js → whatsapp</code></td></tr>
+              <tr><td>GitHub URL</td><td><code>js/config.js → github</code></td></tr>
+              <tr><td>LinkedIn URL</td><td><code>js/config.js → linkedin</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="admin-welcome" style="margin-top:1.5rem;">
+          <h3> Security reminder</h3>
+          <p>
+            Your CEO email and password are <strong>never</strong> stored in
+            this file or in the browser. They are managed by Supabase
+            Authentication. To change your password:
+          </p>
+          <ol style="color:#6b7280;font-size:0.9rem;">
+            <li>Open your Supabase project dashboard.</li>
+            <li>Go to <strong>Authentication → Users</strong>.</li>
+            <li>Click your user → <strong>Reset password</strong>.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { renderSidebar } from "./../js/admin/sidebar.js";
+    import "./../js/admin/auth.js";
+    renderSidebar("settings.html");
+  </script>
+</body>
+</html>
