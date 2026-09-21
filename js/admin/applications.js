@@ -363,7 +363,7 @@ function showInviteModal(result, app) {
   const modalHtml =
     '<div class="modal-backdrop" id="invite-modal" style="position:fixed;inset:0;background:rgba(15,23,42,0.55);display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;z-index:100;">' +
       '<div class="modal" style="background:#fff;border-radius:16px;max-width:640px;width:100%;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.3);">' +
-        '<h3 style="margin:0 0 1rem;font-size:1.15rem;color:#0b1f3a;">Account Created</h3>' +
+        '<h3 style="margin:0 0 1rem;font-size:1.15rem;color:#1E3A8A;">Account Created</h3>' +
         '<p style="color:#6b7280;font-size:0.9rem;margin-top:0;">' +
           escapeHtml(result.email) + ' can now log in to Novanest Labs. Copy the email below and send it from your own inbox.' +
         '</p>' +
@@ -371,8 +371,8 @@ function showInviteModal(result, app) {
           escapeHtml(emailText) +
         '</div>' +
         '<div style="display:flex;gap:0.5rem;flex-wrap:wrap;">' +
-          '<button class="btn btn--primary" id="copy-invite-email" style="background:#0ea5e9;color:#fff;border:none;padding:0.65rem 1rem;border-radius:10px;font-weight:700;cursor:pointer;">Copy Email Template</button>' +
-          '<button class="btn btn--outline" id="close-invite-modal" style="background:#fff;color:#0b1f3a;border:1px solid #0b1f3a;padding:0.65rem 1rem;border-radius:10px;font-weight:700;cursor:pointer;">Close</button>' +
+          '<button class="btn btn--primary" id="copy-invite-email" style="background:#10B981;color:#fff;border:none;padding:0.65rem 1rem;border-radius:10px;font-weight:700;cursor:pointer;">Copy Email Template</button>' +
+          '<button class="btn btn--outline" id="close-invite-modal" style="background:#fff;color:#1E3A8A;border:1px solid #1E3A8A;padding:0.65rem 1rem;border-radius:10px;font-weight:700;cursor:pointer;">Close</button>' +
         '</div>' +
       '</div>' +
     '</div>';

@@ -126,7 +126,7 @@ function showTaskModal(t) {
     '<div class="modal-backdrop" id="labs-task-modal" style="position:fixed;inset:0;background:rgba(15,23,42,0.55);display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;z-index:100;">' +
       '<div class="modal" style="background:#fff;border-radius:16px;max-width:640px;width:100%;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.3);">' +
         '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.75rem;">' +
-          '<h3 style="margin:0;font-size:1.2rem;color:#0b1f3a;">' + escapeHtml(t.title || "Untitled") + '</h3>' +
+          '<h3 style="margin:0;font-size:1.2rem;color:#1E3A8A;">' + escapeHtml(t.title || "Untitled") + '</h3>' +
           typePill +
         '</div>' +
         '<div style="display:grid;gap:0.35rem;font-size:0.9rem;color:#4b5563;margin-bottom:1rem;">' +
@@ -136,8 +136,8 @@ function showTaskModal(t) {
           escapeHtml(t.description || "No description provided.") +
         '</div>' +
        '<div style="margin-top:1.25rem;display:flex;gap:0.5rem;flex-wrap:wrap;">' +
-  '<button id="labs-task-bid" style="background:#0ea5e9;color:#fff;border:none;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Submit Bid</button>' +
-  '<button id="labs-task-close" style="background:#fff;color:#0b1f3a;border:1px solid #0b1f3a;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Close</button>' +
+  '<button id="labs-task-bid" style="background:#10B981;color:#fff;border:none;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Submit Bid</button>' +
+  '<button id="labs-task-close" style="background:#fff;color:#1E3A8A;border:1px solid #1E3A8A;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Close</button>' +
 '</div>' +
       '</div>' +
     '</div>';
@@ -166,7 +166,7 @@ function showBidModal(task) {
   const modalHtml =
     '<div class="modal-backdrop" id="labs-bid-modal" style="position:fixed;inset:0;background:rgba(15,23,42,0.55);display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;z-index:100;">' +
       '<div class="modal" style="background:#fff;border-radius:16px;max-width:560px;width:100%;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.3);">' +
-        '<h3 style="margin:0 0 0.5rem;font-size:1.15rem;color:#0b1f3a;">Submit a Bid</h3>' +
+        '<h3 style="margin:0 0 0.5rem;font-size:1.15rem;color:#1E3A8A;">Submit a Bid</h3>' +
         '<p style="color:#6b7280;font-size:0.9rem;margin:0 0 1rem;">' + escapeHtml(task.title) + '</p>' +
         '<div style="font-size:0.9rem;color:#4b5563;margin-bottom:1rem;">' + budgetLine + '</div>' +
         '<form id="labs-bid-form" class="form">' +
@@ -183,8 +183,8 @@ function showBidModal(task) {
             '<textarea id="bid-proposal" name="proposal" required placeholder="How you plan to do this, why you are the right person, and what you will deliver"></textarea>' +
           '</div>' +
           '<div style="display:flex;gap:0.5rem;margin-top:0.5rem;">' +
-            '<button type="submit" style="background:#0ea5e9;color:#fff;border:none;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Submit Bid</button>' +
-            '<button type="button" id="bid-cancel" style="background:#fff;color:#0b1f3a;border:1px solid #0b1f3a;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Cancel</button>' +
+            '<button type="submit" style="background:#10B981;color:#fff;border:none;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Submit Bid</button>' +
+            '<button type="button" id="bid-cancel" style="background:#fff;color:#1E3A8A;border:1px solid #1E3A8A;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Cancel</button>' +
           '</div>' +
         '</form>' +
       '</div>' +

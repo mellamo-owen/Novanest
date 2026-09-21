@@ -4,7 +4,7 @@
 
 /* ---------- Login page ---------- */
 .admin-login-page {
-  background: linear-gradient(135deg, #0b1f3a 0%, #123a63 100%);
+  background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -29,12 +29,12 @@
   display: block;
   font-size: 1.2rem;
   font-weight: 800;
-  color: #0b1f3a;
+  color: #1E3A8A;
   letter-spacing: 1px;
   margin-bottom: 1.5rem;
   text-decoration: none;
 }
-.admin-login__logo span { color: #0ea5e9; }
+.admin-login__logo span { color: #10B981; }
 
 .admin-login__title {
   font-size: 1.4rem;
@@ -64,7 +64,7 @@
 }
 
 .admin-sidebar {
-  background: #0b1f3a;
+  background: #1E3A8A;
   color: #cbd5e1;
   padding: 1.25rem;
   display: flex;
@@ -79,7 +79,7 @@
   color: #fff;
   margin-bottom: 0.5rem;
 }
-.admin-sidebar__brand span { color: #0ea5e9; }
+.admin-sidebar__brand span { color: #10B981; }
 .admin-sidebar__brand em {
   display: block;
   font-style: normal;
@@ -110,7 +110,7 @@
   text-decoration: none;
 }
 .admin-nav a.is-active {
-  background: #0ea5e9;
+  background: #10B981;
   color: #fff;
 }
 
@@ -136,7 +136,7 @@
 }
 .admin-sidebar__footer .btn--outline:hover {
   background: #fff;
-  color: #0b1f3a;
+  color: #1E3A8A;
 }
 
 .admin-main {
@@ -157,7 +157,7 @@
 .admin-topbar__title {
   margin: 0;
   font-size: 1.15rem;
-  color: #0b1f3a;
+  color: #1E3A8A;
 }
 .admin-topbar__user {
   font-size: 0.85rem;
@@ -179,7 +179,7 @@
   padding: 2rem;
   max-width: 720px;
 }
-.admin-welcome h2 { margin-top: 0; color: #0b1f3a; }
+.admin-welcome h2 { margin-top: 0; color: #1E3A8A; }
 .admin-welcome p { color: #6b7280; }
 
 .admin-stats {
@@ -205,7 +205,7 @@
 .admin-stat__value {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #0b1f3a;
+  color: #1E3A8A;
   margin-top: 0.35rem;
 }
 
@@ -222,7 +222,7 @@
 
 /* Welcome banner at top of dashboard */
 .dash-hero {
-  background: linear-gradient(135deg, #0b1f3a 0%, #123a63 100%);
+  background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
   color: #fff;
   border-radius: var(--radius-lg);
   padding: 1.75rem 2rem;

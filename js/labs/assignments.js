@@ -124,7 +124,7 @@ function showSubmitModal(bid) {
   const modalHtml =
     '<div class="modal-backdrop" id="submit-modal" style="position:fixed;inset:0;background:rgba(15,23,42,0.55);display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;z-index:100;">' +
       '<div class="modal" style="background:#fff;border-radius:16px;max-width:560px;width:100%;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.3);">' +
-        '<h3 style="margin:0 0 0.5rem;font-size:1.15rem;color:#0b1f3a;">Submit Your Work</h3>' +
+        '<h3 style="margin:0 0 0.5rem;font-size:1.15rem;color:#1E3A8A;">Submit Your Work</h3>' +
         '<p style="color:#6b7280;font-size:0.9rem;margin:0 0 1rem;">' + escapeHtml((bid.tasks && bid.tasks.title) || "Task") + '</p>' +
         '<form id="submit-form" class="form">' +
           '<div><label for="sub-url">Deliverable link</label>' +
@@ -132,8 +132,8 @@ function showSubmitModal(bid) {
           '<div><label for="sub-notes">Notes for the admin</label>' +
             '<textarea id="sub-notes" name="submission_notes" placeholder="Brief description of what you delivered"></textarea></div>' +
           '<div style="display:flex;gap:0.5rem;margin-top:0.5rem;">' +
-            '<button type="submit" style="background:#0ea5e9;color:#fff;border:none;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Submit</button>' +
-            '<button type="button" id="sub-cancel" style="background:#fff;color:#0b1f3a;border:1px solid #0b1f3a;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Cancel</button>' +
+            '<button type="submit" style="background:#10B981;color:#fff;border:none;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Submit</button>' +
+            '<button type="button" id="sub-cancel" style="background:#fff;color:#1E3A8A;border:1px solid #1E3A8A;padding:0.65rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;">Cancel</button>' +
           '</div>' +
         '</form>' +
       '</div>' +

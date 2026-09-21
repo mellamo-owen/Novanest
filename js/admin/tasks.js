@@ -253,8 +253,8 @@ async function showBidsModal(task) {
     '<div class="modal-backdrop" id="bids-modal" style="position:fixed;inset:0;background:rgba(15,23,42,0.55);display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;z-index:100;">' +
       '<div class="modal" style="background:#fff;border-radius:16px;max-width:760px;width:100%;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.3);">' +
         '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.75rem;">' +
-          '<h3 style="margin:0;font-size:1.15rem;color:#0b1f3a;">Bids for: ' + escapeHtml(task.title || "") + '</h3>' +
-          '<button id="bids-close" style="background:#fff;color:#0b1f3a;border:1px solid #0b1f3a;padding:0.4rem 0.9rem;border-radius:8px;font-weight:700;cursor:pointer;font-family:inherit;">Close</button>' +
+          '<h3 style="margin:0;font-size:1.15rem;color:#1E3A8A;">Bids for: ' + escapeHtml(task.title || "") + '</h3>' +
+          '<button id="bids-close" style="background:#fff;color:#1E3A8A;border:1px solid #1E3A8A;padding:0.4rem 0.9rem;border-radius:8px;font-weight:700;cursor:pointer;font-family:inherit;">Close</button>' +
         '</div>' +
         '<div style="font-size:0.85rem;color:#6b7280;margin-bottom:1rem;">' +
           'Task type: ' + escapeHtml(task.task_type || "Volunteer") +
@@ -322,8 +322,8 @@ function bidRowHtml(b, member) {
   return '<div style="border:1px solid #e5e7eb;border-radius:12px;padding:1rem;background:#fafbfd;">' +
     '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;margin-bottom:0.5rem;">' +
       '<div>' +
-        '<strong style="color:#0b1f3a;">' + escapeHtml(name) + '</strong>' +
-        (role ? ' <span style="color:#0284c7;font-size:0.85rem;">(' + escapeHtml(role) + ')</span>' : '') +
+        '<strong style="color:#1E3A8A;">' + escapeHtml(name) + '</strong>' +
+        (role ? ' <span style="color:#059669;font-size:0.85rem;">(' + escapeHtml(role) + ')</span>' : '') +
         '<div style="color:#6b7280;font-size:0.8rem;">' + escapeHtml(email) + ' - ' + formatDate(b.created_at) + '</div>' +
       '</div>' +
       statusPill +
@@ -437,7 +437,7 @@ function showPaymentModal(bid, task, onSaved) {
   const modalHtml =
     '<div class="modal-backdrop" id="payment-modal" style="position:fixed;inset:0;background:rgba(15,23,42,0.55);display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;z-index:100;">' +
       '<div class="modal" style="background:#fff;border-radius:16px;max-width:520px;width:100%;padding:1.75rem;box-shadow:0 20px 50px rgba(0,0,0,0.3);">' +
-        '<h3 style="margin:0 0 0.5rem;font-size:1.15rem;color:#0b1f3a;">Log Payment</h3>' +
+        '<h3 style="margin:0 0 0.5rem;font-size:1.15rem;color:#1E3A8A;">Log Payment</h3>' +
         '<p style="color:#6b7280;font-size:0.9rem;margin:0 0 1rem;">' + escapeHtml((task && task.title) || "") + '</p>' +
         '<form id="payment-form" class="form">' +
           '<div><label for="pay-amount">Amount (KSh) *</label>' +

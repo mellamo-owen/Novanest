@@ -86,11 +86,11 @@ async function guardAdminPage() {
     document.body.innerHTML = `
       <div style="max-width:520px;margin:5rem auto;padding:2rem;
                   font-family:system-ui;text-align:center;">
-        <h1 style="color:#0b1f3a;">Not authorized</h1>
+        <h1 style="color:#1E3A8A;">Not authorized</h1>
         <p style="color:#6b7280;">
           Your account is not registered as a Novanest administrator.
         </p>
-        <p><a href="login.html" style="color:#0284c7;">Back to login →</a></p>
+        <p><a href="login.html" style="color:#059669;">Back to login →</a></p>
       </div>`;
     return;
   }
