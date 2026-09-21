@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Novanest Digital Solutions - Build. Learn. Innovate. Grow.</title>
+<style>
+.roles-popup{position:fixed;inset:0;background:rgba(10,20,50,.75);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:9999}
+.roles-popup__box{background:#fff;border-radius:20px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;padding:2rem;box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative;font-family:system-ui,sans-serif}
+.roles-popup__close{position:absolute;top:.9rem;right:.9rem;width:36px;height:36px;border-radius:50%;background:#f3f4f6;border:none;cursor:pointer;font-size:1.2rem;color:#374151}
+.roles-popup__eyebrow{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#059669;background:#d1fae5;padding:.25rem .7rem;border-radius:999px;margin-bottom:.75rem}
+.roles-popup__title{font-size:1.5rem;font-weight:800;color:#0f172a;margin:0 0 .4rem}
+.roles-popup__sub{color:#6b7280;font-size:.95rem;margin:0 0 1.25rem}
+.roles-popup__grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.5rem}
+.roles-popup__role{display:flex;align-items:center;gap:.65rem;padding:.75rem .9rem;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;color:#0f172a;font-weight:600;font-size:.9rem}
+.roles-popup__role:hover{background:#ecfdf5;border-color:#10b981}
+.roles-popup__role-icon{font-size:1.15rem}
+.roles-popup__actions{display:flex;gap:.6rem;flex-wrap:wrap}
+.roles-popup__btn{padding:.75rem 1.25rem;border-radius:12px;font-weight:700;font-size:.9rem;cursor:pointer;text-decoration:none;display:inline-block;text-align:center;flex:1;min-width:160px;border:1px solid transparent}
+.roles-popup__btn--primary{background:#10b981;color:#fff}
+.roles-popup__btn--primary:hover{background:#059669}
+.roles-popup__btn--ghost{background:transparent;color:#6b7280;border-color:#e5e7eb}
+@media (max-width:480px){.roles-popup__grid{grid-template-columns:1fr}.roles-popup__title{font-size:1.25rem}.roles-popup__box{padding:1.5rem}}
+</style>
+</head>
+<body>
+<script>
+(function(){
+  if(sessionStorage.getItem("nv_popup_seen")==="1"){return;}
+  var roles=[["Developer","D"],["Tutor","T"],["Designer","A"],["Advertiser / Marketer","M"],["Content Creator","C"],["Media / Video","V"],["Business / Outreach","B"],["Other","O"]];
+  var grid=roles.map(function(r){return '<a class="roles-popup__role" href="join.html#apply"><span class="roles-popup__role-icon">'+r[1]+'</span><span>'+r[0]+'</span></a>';}).join("");
+  var ov=document.createElement("div");
+  ov.className="roles-popup";
+  ov.innerHTML='<div class="roles-popup__box"><button class="roles-popup__close" aria-label="Close">&times;</button><span class="roles-popup__eyebrow">We are hiring</span><h2 class="roles-popup__title">Build with Novanest</h2><p class="roles-popup__sub">We are recruiting across all departments. Every role is open - apply and our founder will personally review your application.</p><div class="roles-popup__grid">'+grid+'</div><div class="roles-popup__actions"><a href="join.html#apply" class="roles-popup__btn roles-popup__btn--primary">Apply Now</a><button type="button" class="roles-popup__btn roles-popup__btn--ghost" data-dismiss>Maybe Later</button></div></div>';
+  function hide(){try{sessionStorage.setItem("nv_popup_seen","1");}catch(e){}ov.remove();}
+  ov.addEventListener("click",function(e){if(e.target===ov)hide();if(e.target.matches("[data-dismiss]"))hide();if(e.target.matches(".roles-popup__close"))hide();});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")hide();});
+  document.body.appendChild(ov);
+})();
+</script>
+<h1 style="color:#0f172a;font-family:system-ui;padding:2rem;">Popup test page</h1>
+<p style="padding:2rem;color:#6b7280;font-family:system-ui;">If you see the popup on top of this page, it works. Close it, then go back to your real site.</p>
+</body>
+</html>
