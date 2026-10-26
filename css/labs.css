@@ -259,3 +259,85 @@ body.labs-body {
   color: #FFFFFF !important;
 }
 .form label { color: #E2E8F0 !important; }
+/* ============================================================
+   LABS TASKS PAGE - PREMIUM DARK UI
+   ============================================================ */
+
+/* Fix the search/filter bar */
+.labs-filters input,
+.labs-filters select {
+  background-color: #0F172A !important;
+  border: 1px solid #1E293B !important;
+  color: #FFFFFF !important;
+  border-radius: 10px !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 0.9rem !important;
+}
+.labs-filters input::placeholder {
+  color: #64748B !important;
+}
+
+/* Style the Task Cards */
+.labs-task-card {
+  background-color: #0F172A !important; /* Deep navy */
+  border: 1px solid #1E293B !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+  transition: transform 0.2s, border-color 0.2s !important;
+}
+.labs-task-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: #10B981 !important;
+}
+
+/* Task Card Text */
+.labs-task-card__title {
+  color: #FFFFFF !important;
+  font-size: 1.2rem !important;
+  margin-bottom: 0.5rem !important;
+}
+.labs-task-card__desc {
+  color: #94A3B8 !important;
+  font-size: 0.95rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Task Card Meta (Budget, Deadline, Slots) */
+.labs-task-card__foot {
+  border-top: 1px solid #1E293B !important;
+  padding-top: 1rem !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.labs-task-card__budget {
+  color: #10B981 !important; /* Emerald for money */
+  font-size: 1.1rem !important;
+  font-weight: 800 !important;
+}
+.labs-task-card__budget--volunteer {
+  color: #3B82F6 !important; /* Blue for volunteer */
+  font-weight: 700 !important;
+}
+.labs-task-card__deadline {
+  color: #94A3B8 !important;
+  font-size: 0.85rem !important;
+}
+
+/* Fix the Tags (Technology, Education) */
+.labs-task-card .tag {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10B981 !important;
+  border: none !important;
+}
+
+/* Fix the empty state text */
+.labs-empty {
+  background-color: #0F172A !important;
+  border: 1px dashed #334155 !important;
+  color: #94A3B8 !important;
+}
+.labs-empty strong {
+  color: #FFFFFF !important;
+}
