@@ -1029,3 +1029,113 @@ body.admin-body {
     font-size: 1rem;
   }
 }
+/* ============================================================
+   PREMIUM MOBILE CARDS FOR ADMIN TABLES
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* Hide table headers */
+  .admin-table thead {
+    display: none;
+  }
+  
+  /* Reset table structure */
+  .admin-table, 
+  .admin-table tbody, 
+  .admin-table tr, 
+  .admin-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Style the mobile card */
+  .admin-table tr {
+    background-color: #0B1120 !important;
+    background-image: url('../assets/images/section-bg.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border: 1px solid #1E293B !important;
+    border-radius: 16px !important;
+    margin-bottom: 1.5rem !important;
+    padding: 1.5rem 1rem !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center everything horizontally */
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  /* Add a dark overlay to the card so text is readable */
+  .admin-table tr {
+    position: relative;
+    z-index: 1;
+  }
+  .admin-table tr::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.85);
+    border-radius: 16px;
+    z-index: -1;
+  }
+
+  /* Style the cells */
+  .admin-table td {
+    border: none !important;
+    padding: 0.25rem 0 !important;
+    color: #E2E8F0 !important;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.95rem;
+  }
+
+  /* Hide the empty thumbnails (N/A) for a cleaner look */
+  .admin-table td .thumb-placeholder, 
+  .admin-table td img.thumb {
+    display: none;
+  }
+
+  /* Hide the empty first column if it only contains the image */
+  .admin-table td:first-child:empty,
+  .admin-table td:first-child .thumb-placeholder {
+    display: none;
+  }
+
+  /* Make the Project Title prominent */
+  .admin-table td strong {
+    color: #FFFFFF;
+    font-size: 1.15rem;
+    display: block;
+    margin: 0.25rem 0;
+  }
+
+  /* Style the status badges */
+  .admin-table .task-type-pill,
+  .admin-table .task-status-pill,
+  .admin-table .dash-badge {
+    display: inline-block;
+    margin: 0.25rem 0.2rem;
+  }
+
+  /* Style the action buttons (Edit/Delete) */
+  .admin-table .row-actions,
+  .admin-table td:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+  }
+  
+  .admin-table .row-actions button,
+  .admin-table td:last-child button,
+  .admin-table td:last-child a {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 8px !important;
+  }
+}
