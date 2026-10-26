@@ -1,5 +1,5 @@
-// ============================================================
-// NOVANEST — Admin sidebar renderer
+ï»¿// ============================================================
+// NOVANEST â€” Admin sidebar renderer
 // Injects the same sidebar HTML into every admin page.
 // Change it here once ? all pages update.
 // ============================================================
@@ -13,6 +13,7 @@ export function renderSidebar(activePage) {
     { href: "team.html",         label: "Team Members" },
     { href: "careers.html",      label: "Careers" },
     { href: "payouts.html",      label: "Payouts" },
+    { href: "pricing.html",      label: "Pricing" },
     { href: "support.html",      label: "Support" },
     { href: "tutoring.html",     label: "Tutoring" },
     { href: "clients.html",      label: "Client Requests" },
@@ -39,7 +40,7 @@ export function renderSidebar(activePage) {
     </nav>
     <div class="admin-sidebar__footer">
       <div class="admin-sidebar__email">
-        Signed in as <strong data-admin-email>…</strong>
+        Signed in as <strong data-admin-email>â€¦</strong>
       </div>
       <button class="btn btn--outline" data-logout>Logout</button>
     </div>
