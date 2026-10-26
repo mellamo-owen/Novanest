@@ -181,3 +181,81 @@
   border-color: #1E3A8A;
 }
 .labs-assign-btn--secondary:hover { background: #1E3A8A; color: #fff; }
+/* ============================================================
+   LABS (EMPLOYEE) DASHBOARD - DARK SaaS UI
+   ============================================================ */
+body.labs-body {
+  background-color: #0B1120 !important; /* Deep dark background */
+  color: #E2E8F0 !important;
+}
+
+/* Top Navigation */
+.labs-topbar {
+  background-color: #0F172A !important;
+  border-bottom: 1px solid #1E293B !important;
+}
+.labs-topbar__brand { color: #FFFFFF !important; }
+.labs-topbar__brand span { color: #10B981 !important; }
+.labs-topbar__nav a { color: #94A3B8 !important; }
+.labs-topbar__nav a:hover, .labs-topbar__nav a.is-active { 
+  color: #10B981 !important; 
+  background: rgba(16,185,129,0.1) !important; 
+}
+
+/* Hero Banner */
+.labs-hero {
+  background: linear-gradient(135deg, #1E3A8A 0%, #0B1120 100%) !important;
+  border: 1px solid #1E293B !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
+}
+.labs-hero h1 { color: #FFFFFF !important; }
+.labs-hero p { color: #94A3B8 !important; }
+
+/* Stat Cards (The colorful ones from your screenshot) */
+.labs-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  gap: 1.25rem !important;
+}
+
+.labs-card {
+  background-color: #0F172A !important;
+  border: 1px solid #1E293B !important;
+  border-radius: 16px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add the colorful top border accents */
+.labs-card:nth-child(1) { border-top: 3px solid #10B981 !important; } /* Green - Bids */
+.labs-card:nth-child(2) { border-top: 3px solid #3B82F6 !important; } /* Blue - Assignments */
+.labs-card:nth-child(3) { border-top: 3px solid #8B5CF6 !important; } /* Purple - Earned */
+
+.labs-card h2, .labs-card h3, .labs-card .stat-value {
+  color: #FFFFFF !important;
+}
+.labs-card p, .labs-card .stat-label {
+  color: #94A3B8 !important;
+}
+
+/* Profile List */
+.labs-kv dt { color: #94A3B8 !important; }
+.labs-kv dd { color: #FFFFFF !important; }
+
+/* Buttons */
+.btn--outline {
+  border-color: rgba(255,255,255,0.2) !important;
+  color: #E2E8F0 !important;
+}
+.btn--outline:hover {
+  background: #1E293B !important;
+}
+
+/* Forms/Inputs (for Settings page) */
+.form input, .form textarea, .form select {
+  background-color: #0B1120 !important;
+  border: 1px solid #1E293B !important;
+  color: #FFFFFF !important;
+}
+.form label { color: #E2E8F0 !important; }

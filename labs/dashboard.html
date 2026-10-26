@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Dashboard - Novanest Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/responsive.css" />
   <link rel="stylesheet" href="../css/labs.css" />
@@ -22,56 +25,63 @@
       <a href="settings.html">Settings</a>
     </nav>
     <div class="labs-topbar__user">
-      <span>Signed in as <strong data-labs-name>...</strong></span>
-      <button data-labs-logout>Logout</button>
+      <span style="color: #94A3B8;">Signed in as <strong data-labs-name style="color:#fff;">...</strong></span>
+      <button data-labs-logout style="border: 1px solid rgba(255,255,255,0.2); color: #fff;">Logout</button>
     </div>
   </header>
 
   <main class="labs-main">
-    <div class="labs-hero">
-      <h1>Welcome to Novanest Labs</h1>
-      <p>Your workspace for tasks, bids, and earnings.</p>
+    
+    <div class="labs-hero" style="padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+      <div>
+        <h1 style="margin: 0 0 0.5rem; font-size: 1.8rem;">Welcome back, <span data-labs-name style="color: #10B981;">...</span></h1>
+        <p style="margin: 0;">Here is your current workspace overview.</p>
+      </div>
+      <div>
+        <a href="tasks.html" class="btn btn--primary" style="background: #10B981; border: none;">View Open Tasks</a>
+      </div>
     </div>
 
     <div id="change-password-notice"></div>
 
-    <div class="labs-grid" style="margin-bottom:1.5rem;">
-      <div class="labs-card">
-        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#6b7280;">Bids Submitted</div>
-        <div style="font-size:1.6rem;font-weight:800;color:#1E3A8A;margin-top:0.3rem;" data-labs-field="stat-bids">0</div>
+    <!-- The colorful stat cards -->
+    <div class="labs-grid" style="margin-bottom: 2rem;">
+      <div class="labs-card" style="padding: 1.5rem;">
+        <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94A3B8;margin-bottom:0.5rem;">Bids Submitted</div>
+        <div style="font-size:2rem;font-weight:800;color:#FFF;" data-labs-field="stat-bids">0</div>
       </div>
-      <div class="labs-card">
-        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#6b7280;">Active Assignments</div>
-        <div style="font-size:1.6rem;font-weight:800;color:#1E3A8A;margin-top:0.3rem;" data-labs-field="stat-assignments">0</div>
+      <div class="labs-card" style="padding: 1.5rem;">
+        <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94A3B8;margin-bottom:0.5rem;">Active Assignments</div>
+        <div style="font-size:2rem;font-weight:800;color:#FFF;" data-labs-field="stat-assignments">0</div>
       </div>
-      <div class="labs-card">
-        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#6b7280;">Total Earned</div>
-        <div style="font-size:1.6rem;font-weight:800;color:#065f46;margin-top:0.3rem;" data-labs-field="stat-earned">KSh 0</div>
+      <div class="labs-card" style="padding: 1.5rem;">
+        <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94A3B8;margin-bottom:0.5rem;">Total Earned</div>
+        <div style="font-size:2rem;font-weight:800;color:#10B981;" data-labs-field="stat-earned">KSh 0</div>
       </div>
     </div>
 
     <div class="labs-grid">
-      <div class="labs-card">
-        <h2>Your Profile</h2>
+      <div class="labs-card" style="padding: 1.5rem;">
+        <h2 style="margin-top:0; font-size:1.2rem; border-bottom: 1px solid #1E293B; padding-bottom: 1rem;">Your Profile</h2>
         <dl class="labs-kv">
           <dt>Name</dt><dd data-labs-field="full_name">...</dd>
           <dt>Email</dt><dd data-labs-field="email">...</dd>
           <dt>Role</dt><dd data-labs-field="role">...</dd>
-          <dt>Status</dt><dd data-labs-field="status">...</dd>
+          <dt>Status</dt><dd data-labs-field="status" style="color:#10B981;">...</dd>
           <dt>Joined</dt><dd data-labs-field="created_at">...</dd>
         </dl>
       </div>
-      <div class="labs-card">
-        <h2>Quick actions</h2>
-        <p style="color:#6b7280;">Jump to a section of your workspace:</p>
-        <p style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.75rem;">
-          <a class="btn btn--outline" href="tasks.html">Browse Tasks</a>
-          <a class="btn btn--outline" href="my-bids.html">My Bids</a>
-          <a class="btn btn--outline" href="assignments.html">Assignments</a>
-          <a class="btn btn--outline" href="earnings.html">Earnings</a>
-        </p>
+      <div class="labs-card" style="padding: 1.5rem;">
+        <h2 style="margin-top:0; font-size:1.2rem; border-bottom: 1px solid #1E293B; padding-bottom: 1rem;">Quick Actions</h2>
+        <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top: 1rem;">
+          <a class="btn btn--outline" href="tasks.html" style="text-align:left; display:flex; justify-content:space-between;">Browse Open Tasks <span style="color:#10B981;">&rarr;</span></a>
+          <a class="btn btn--outline" href="my-bids.html" style="text-align:left; display:flex; justify-content:space-between;">Review My Bids <span style="color:#10B981;">&rarr;</span></a>
+          <a class="btn btn--outline" href="assignments.html" style="text-align:left; display:flex; justify-content:space-between;">Manage Assignments <span style="color:#10B981;">&rarr;</span></a>
+          <a class="btn btn--outline" href="earnings.html" style="text-align:left; display:flex; justify-content:space-between;">View Earnings <span style="color:#10B981;">&rarr;</span></a>
+        </div>
       </div>
     </div>
+
   </main>
 
   <div class="labs-toast" id="labs-toast"></div>
