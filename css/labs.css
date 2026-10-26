@@ -341,3 +341,32 @@ body.labs-body {
 .labs-empty strong {
   color: #FFFFFF !important;
 }
+/* FIX LABS DASHBOARD FOR MOBILE */
+.labs-kv {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 0.25rem !important;
+}
+.labs-kv dt {
+  margin-top: 0.75rem;
+}
+.labs-kv dt:first-of-type {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  /* Stack the Profile and Quick Actions cards */
+  .labs-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Make the hero text wrap nicely */
+  .labs-hero h1 {
+    font-size: 1.4rem !important;
+  }
+  
+  /* Ensure quick action buttons look good */
+  .labs-card .btn {
+    padding: 1rem !important;
+  }
+}
