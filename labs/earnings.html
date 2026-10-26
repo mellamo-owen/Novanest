@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Earnings - Novanest Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/labs.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="labs-body">
+
+  <header class="labs-topbar">
+    <a href="dashboard.html" class="labs-topbar__brand">NOVA<span>NEST</span> Labs</a>
+    <nav class="labs-topbar__nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="my-bids.html">My Bids</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="earnings.html" class="is-active">Earnings</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+    <div class="labs-topbar__user">
+      <span style="color: #94A3B8;">Signed in as <strong data-labs-name style="color:#fff;">...</strong></span>
+      <button data-labs-logout style="border: 1px solid rgba(255,255,255,0.2); color: #fff;">Logout</button>
+    </div>
+  </header>
+
+  <main class="labs-main">
+    <div class="labs-hero" style="background: linear-gradient(135deg, #1E3A8A, #0F172A); border: 1px solid #1E293B;">
+      <h1>My Earnings</h1>
+      <p>Payments you have received from Novanest for completed work.</p>
+    </div>
+
+    <div class="labs-grid" style="margin-bottom:1.5rem;">
+      <div class="labs-card">
+        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#94A3B8;">Total Earned</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#10B981;margin-top:0.3rem;" id="kpi-total">KSh 0</div>
+      </div>
+      <div class="labs-card">
+        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#94A3B8;">This Month</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#FFF;margin-top:0.3rem;" id="kpi-month">KSh 0</div>
+      </div>
+      <div class="labs-card">
+        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#94A3B8;">Payments Received</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#FFF;margin-top:0.3rem;" id="kpi-count">0</div>
+      </div>
+    </div>
+
+    <!-- Payout Analytics Chart -->
+    <div class="labs-card" style="margin-bottom: 1.5rem; padding: 1.5rem;">
+      <h2 style="margin-top:0; font-size:1.2rem; border-bottom: 1px solid #1E293B; padding-bottom: 1rem; margin-bottom: 1rem;">Earnings Overview</h2>
+      <div style="height: 250px; width: 100%;">
+        <canvas id="earningsChart"></canvas>
+      </div>
+    </div>
+
+    <div id="labs-earnings-container">
+      <div class="labs-card"><strong>Loading payments...</strong></div>
+    </div>
+  </main>
+
+  <div class="labs-toast" id="labs-toast"></div>
+
+  <script type="module" src="../js/labs/auth.js"></script>
+  <script type="module" src="../js/labs/earnings.js"></script>
+</body>
+</html>

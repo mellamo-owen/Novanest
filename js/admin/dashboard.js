@@ -22,9 +22,11 @@ async function loadDashboard() {
       supabase.from("projects").select("id, published", { count: "exact" }),
       supabase.from("team_members").select("id", { count: "exact" }),
       supabase.from("support").select("amount, status"),
-      supabase.from("client_inquiries").select("id", { count: "exact" })
+      supabase.from("client_inquiries").select("id", { count: "exact" }),
+      supabase.from("payouts").select("amount, created_at")
     ]);
 
+    const payoutsData = arguments[0][4].data || [];
     const totalProjects = projectsRes.count || 0;
     const activeTeam = teamRes.count || 0;
     const clientRequests = clientsRes.count || 0;
@@ -130,9 +132,28 @@ async function loadDashboard() {
         }
       }
     });
+    const payoutsByDate = {};
+    payoutsData.forEach(p => {
+      const d = new Date(p.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+      if (!payoutsByDate[d]) payoutsByDate[d] = 0;
+      payoutsByDate[d] += Number(p.amount || 0);
+    });
+    const pLabels = Object.keys(payoutsByDate).reverse();
+    const pData = Object.values(payoutsByDate).reverse();
+    const pCtx = document.getElementById("payoutChart").getContext("2d");
+    let pGradient = pCtx.createLinearGradient(0, 0, 0, 400);
+    pGradient.addColorStop(0, "rgba(59, 130, 246, 0.8)");
+    pGradient.addColorStop(1, "rgba(59, 130, 246, 0.1)");
+    new Chart(pCtx, {
+      type: "bar",
+      data: { labels: pLabels.length ? pLabels : ["No Data"], datasets: [{ label: "Payouts (KSh)", data: pData.length ? pData : [0], backgroundColor: pGradient, borderRadius: 6, borderSkipped: false }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: "#64748B" } }, y: { grid: { color: "#1E293B" }, ticks: { color: "#64748B" } } } }
+    });
+
 
   } catch (err) {
     console.error("Dashboard Error:", err);
     content.innerHTML = "<h2>Error loading dashboard data.</h2>";
   }
 }
+

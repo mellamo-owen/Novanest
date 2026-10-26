@@ -35,6 +35,22 @@ async function loadEarnings(userId) {
   container.innerHTML = '<div class="admin-table-wrap"><div class="admin-table-scroll"><table class="admin-table"><thead><tr>' +
     '<th>Date</th><th>Task / Note</th><th>Amount</th><th>Status</th>' +
     '</tr></thead><tbody>' + rows.map(rowHtml).join("") + '</tbody></table></div></div>';
+
+  // Render the Chart
+  const ctx = document.getElementById('earningsChart').getContext('2d');
+  const chartData = [...rows].reverse();
+  const labels = chartData.map(r => new Date(r.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }));
+  const amounts = chartData.map(r => Number(r.amount || 0));
+  
+  let gradient = ctx.createLinearGradient(0, 0, 0, 250);
+  gradient.addColorStop(0, '#10B981');
+  gradient.addColorStop(1, 'rgba(16, 185, 129, 0.2)');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: { labels: labels, datasets: [{ label: 'Payout Amount (KSh)', data: amounts, backgroundColor: gradient, borderRadius: 6, borderSkipped: false }] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: '#94A3B8' } }, y: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8' } } } }
+  });
 }
 
 function rowHtml(r) {
