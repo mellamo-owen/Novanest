@@ -833,3 +833,145 @@ body.admin-body {
   margin: 0 0 1rem 0;
   font-size: 1rem;
 }
+/* ============================================================
+   FIX SUB-PAGES FOR DARK ADMIN UI
+   (Applies to Tasks, Applications, Messages, Payouts, etc.)
+   ============================================================ */
+
+/* 1. Fix the white background on page headers and content */
+.admin-content {
+  background-color: #0B1120 !important; /* Deep dark */
+  color: #E2E8F0 !important;
+}
+
+.admin-page-head h2, 
+.admin-welcome h2,
+.admin-content h2 {
+  color: #FFFFFF !important;
+}
+.admin-page-head p {
+  color: #94A3B8 !important;
+}
+
+/* 2. Style the Tables so they look professional */
+.admin-table-wrap {
+  background-color: #0F172A !important;
+  border: 1px solid #1E293B !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.admin-table th {
+  background-color: #1E293B !important;
+  color: #94A3B8 !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #334155 !important;
+  padding: 1rem !important;
+}
+.admin-table td {
+  color: #E2E8F0 !important;
+  border-bottom: 1px solid #1E293B !important;
+  padding: 1rem !important;
+  vertical-align: middle;
+}
+.admin-table tr:hover td {
+  background-color: #1E293B !important;
+}
+
+/* 3. Style the Application/Message Cards (white boxes) */
+.msg-card, .app-card {
+  background-color: #0F172A !important;
+  border: 1px solid #1E293B !important;
+  border-radius: 12px !important;
+  color: #E2E8F0 !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.msg-card__title, .app-card__name {
+  color: #FFFFFF !important;
+}
+.msg-card__meta, .app-card__meta {
+  color: #94A3B8 !important;
+}
+.msg-card__body, .app-card__section p {
+  color: #CBD5E1 !important;
+  background-color: #0B1120 !important;
+  border-radius: 8px;
+}
+.app-card__role {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10B981 !important;
+}
+
+/* 4. Fix the search and filter bars */
+.admin-toolbar input, 
+.admin-toolbar select {
+  background-color: #0F172A !important;
+  border: 1px solid #1E293B !important;
+  color: #FFFFFF !important;
+  border-radius: 8px;
+}
+.admin-toolbar input::placeholder {
+  color: #64748B !important;
+}
+
+/* 5. Fix the action buttons (Edit/Delete) in tables */
+.row-actions button,
+.msg-card__actions button,
+.msg-card__actions a {
+  background-color: #1E293B !important;
+  border: 1px solid #334155 !important;
+  color: #E2E8F0 !important;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.row-actions button:hover,
+.msg-card__actions button:hover,
+.msg-card__actions a:hover {
+  background-color: #334155 !important;
+  color: #FFFFFF !important;
+}
+.row-actions button.danger:hover {
+  background-color: #991B1B !important;
+  border-color: #991B1B !important;
+  color: #FFFFFF !important;
+}
+
+/* 6. Fix Modals (New Task, New Invoice, etc.) */
+.modal {
+  background-color: #0F172A !important;
+  border: 1px solid #1E293B !important;
+  color: #E2E8F0 !important;
+}
+.modal h3 {
+  color: #FFFFFF !important;
+}
+.modal .form label {
+  color: #E2E8F0 !important;
+}
+.modal .form input, 
+.modal .form select, 
+.modal .form textarea {
+  background-color: #0B1120 !important;
+  border: 1px solid #1E293B !important;
+  color: #FFFFFF !important;
+}
+
+/* 7. Fix specific page elements */
+.support-kpi {
+  background-color: #0F172A !important;
+  border: 1px solid #1E293B !important;
+}
+.support-kpi__value { color: #FFFFFF !important; }
+.support-kpi__label { color: #94A3B8 !important; }
+
+/* Payouts & Invoices tables */
+.invoice-status--draft { background: #1E293B !important; color: #94A3B8 !important; }
+.invoice-status--paid { background: rgba(16, 185, 129, 0.2) !important; color: #10B981 !important; }
+
+/* Teams page */
+.team-card { background: #0F172A !important; border-color: #1E293B !important; }
+.team-card__name { color: #FFFFFF !important; }
+.team-card__bio { color: #94A3B8 !important; }
