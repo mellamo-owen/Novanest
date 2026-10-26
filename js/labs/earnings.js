@@ -53,15 +53,9 @@ async function loadEarnings(userId) {
   });
 }
 
-function rowHtml(r) {
-  const t = r.tasks || {};
-  return '<tr>' +
-    '<td>' + formatDate(r.created_at) + '</td>' +
-    '<td><strong>' + escapeHtml(t.title || "Task Payout") + '</strong></td>' +
-    '<td><strong style="color:#10B981;">KSh ' + Number(r.amount || 0).toLocaleString() + '</strong></td>' +
-    '<td><span class="dash-badge dash-badge--new">' + escapeHtml(r.status || "Processing") + '</span></td>' +
-  '</tr>';
+'<td data-label="Date">' + formatDate(r.created_at) + '</td>' +'<td data-label="Task"><strong>' + escapeHtml(t.title || 'Task Payout') + '</strong></td>' + '<td data-label="Amount"><strong style="color:#10B981;">KSh ' + Number(r.amount || 0).toLocaleString() + '</strong></td>' + '<td data-label="Status"><span class="dash-badge dash-badge--new">' + escapeHtml(r.status || 'Processing') + '</span></td>' + '</tr>';
 }
 
 function formatDate(iso) { return iso ? new Date(iso).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }) : ""; }
 function escapeHtml(str) { return String(str).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;"); }
+
