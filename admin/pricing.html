@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Pricing Settings - Novanest Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-topbar__title">Pricing Settings</h1>
+      <div class="admin-topbar__user" data-admin-email>...</div>
+    </header>
+
+    <section class="admin-content">
+      <div class="admin-page-head">
+        <div>
+          <h2>Manage Website Pricing</h2>
+          <p>Update the prices shown on the public Pricing page.</p>
+        </div>
+      </div>
+
+      <div class="admin-welcome" style="max-width: 600px;">
+        <form id="pricing-form" class="form">
+          <div>
+            <label>Price per Page (KSh)</label>
+            <input type="number" id="price-page" required />
+          </div>
+          <div>
+            <label>Monthly Hosting Fee (KSh)</label>
+            <input type="number" id="price-hosting" required />
+          </div>
+          <div>
+            <label>USD Exchange Rate (1 USD = ? KSh)</label>
+            <input type="number" id="price-rate" required />
+            <p style="font-size:0.8rem; color:#94A3B8; margin-top:0.25rem;">Used to calculate the USD equivalent on the public site.</p>
+          </div>
+          <button type="submit" class="btn btn--primary" style="margin-top:1rem;">Save Pricing</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script type="module">
+    import { renderSidebar } from "./../js/admin/sidebar.js";
+    import "./../js/admin/auth.js";
+    import "./../js/admin/pricing.js";
+    renderSidebar("pricing.html");
+  </script>
+</body>
+</html>
