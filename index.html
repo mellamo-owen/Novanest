@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -114,11 +114,7 @@
     <div class="container">
       <h2 class="section__title">Featured Projects</h2>
       <p class="section__subtitle">A look at what we are building in Novanest Labs.</p>
-      <div class="grid grid--3">
-        <div class="card"><span class="card__tag">Education</span><h3 class="card__title">Project Coming Soon</h3><p class="card__text">Featured projects load dynamically from our database.</p></div>
-        <div class="card"><span class="card__tag">Business</span><h3 class="card__title">Project Coming Soon</h3><p class="card__text">Add projects through the admin dashboard.</p></div>
-        <div class="card"><span class="card__tag">Community</span><h3 class="card__title">Project Coming Soon</h3><p class="card__text">Every project shows its tech stack, status and links.</p></div>
-      </div>
+      <div id="home-featured-projects" class="grid grid--3"><div class="projects-state">Loading featured projects...</div></div>
       <p style="margin-top:1.5rem;"><a class="btn btn--outline" href="projects.html">View All Projects</a></p>
     </div>
   </section>
@@ -290,3 +286,43 @@
 
 
 
+<script type="module">
+import { supabase } from "./js/supabase.js";
+
+const container = document.getElementById("home-featured-projects");
+if (container) {
+  async function loadFeatured() {
+    const { data, error } = await supabase
+      .from("projects")
+      .select("*")
+      .eq("published", true)
+      .eq("featured", true)
+      .order("created_at", { ascending: false })
+      .limit(3);
+
+    if (error) {
+      console.error(error);
+      container.innerHTML = '<div class="projects-state">Could not load projects.</div>';
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      container.innerHTML = '<div class="projects-state">New featured projects coming soon.</div>';
+      return;
+    }
+
+    container.innerHTML = data.map(p => {
+      const tag = p.category ? '<span class="card__tag">' + p.category + '</span>' : '<span class="card__tag">Project</span>';
+      const title = p.title || 'Untitled Project';
+      const desc = p.description || 'No description provided.';
+      return '<div class="card">' + 
+        tag + 
+        '<h3 class="card__title">' + title + '</h3>' + 
+        '<p class="card__text">' + desc + '</p>' + 
+        '<p style="margin-top:1rem;"><a class="btn btn--outline" href="projects.html">View Project</a></p>' + 
+      '</div>';
+    }).join("");
+  }
+  loadFeatured();
+}
+</script>
