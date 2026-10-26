@@ -1996,3 +1996,69 @@ a:hover {
 .bg-section-image .project-card p, .bg-section-image .project-card div {
   color: #4B5563 !important;
 }
+/* FIX FADED TEXT IN NAVY CARDS */
+.section .card p, .section .card div,
+.section .project-card p, .section .project-card div,
+.section .career-card p, .section .career-card div {
+  color: #F8FAFC !important; /* Very bright white/grey */
+}
+
+.section .card h1, .section .card h2, .section .card h3,
+.section .project-card h1, .section .project-card h2, .section .project-card h3,
+.section .career-card h1, .section .career-card h2, .section .career-card h3 {
+  color: #FFFFFF !important; /* Pure white for headings */
+}
+
+.section .card .card__tag {
+  color: #10B981 !important; /* Bright emerald for the tags */
+  background: rgba(16, 185, 129, 0.15) !important;
+}
+/* APPLY BACKGROUND IMAGE TO CARDS */
+.section .card,
+.section .project-card,
+.section .career-card,
+.section .team-card,
+.pricing-card {
+  background-image: url('../assets/images/section-bg.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+/* APPLY IMAGE TO ALL HOMEPAGE SECTIONS */
+.section, 
+.section--soft {
+  background-image: url('assets/images/section-bg.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Add a dark overlay so the text stays perfectly readable */
+.section::before, 
+.section--soft::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.85) !important; /* Deep navy overlay */
+  z-index: 0;
+}
+
+/* Ensure content sits above the overlay */
+.section .container,
+.section--soft .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Make the section containers relative so the overlay works */
+.section, .section--soft {
+  position: relative !important;
+}
+/* FIX LOADING STATE BACKGROUND */
+.projects-state {
+  background: #0F172A !important;
+  color: #E2E8F0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
