@@ -16,9 +16,9 @@ async function loadTeam() {
     
     const myBadges = allBadges ? allBadges.filter(b => b.member_id === m.user_id) : [];
     
-    // SIZE INCREASED TO 64px, moved lower (bottom: -10px)
+    // Reverted to initial 36px size
     const badgeOverlay = myBadges.length > 0 
-      ? `<img src="assets/images/verified-badge.png" alt="Verified" style="position:absolute; bottom:-10px; right:-6px; width:64px; height:64px; border-radius:50%; background:#0F172A; padding:3px; border:3px solid #1E293B; object-fit:contain; mix-blend-mode: screen;" title="Verified Skill: ${myBadges[0].skill_name}"/>`
+      ? `<img src="assets/images/verified-badge.png" alt="Verified" style="position:absolute; bottom:-4px; right:-4px; width:36px; height:36px; border-radius:50%; background:#0F172A; padding:3px; border:2px solid #1E293B; object-fit:contain; mix-blend-mode: screen;" title="Verified Skill: ${myBadges[0].skill_name}"/>`
       : "";
 
     return `
