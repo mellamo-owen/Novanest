@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Manage Badges - Novanest Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-topbar__title">Skill Badges</h1>
+      <div class="admin-topbar__user" data-admin-email>...</div>
+    </header>
+    <section class="admin-content">
+      <div class="admin-page-head">
+        <div>
+          <h2>Award Verified Badges</h2>
+          <p>Give verified skill badges to team members based on their completed tasks.</p>
+        </div>
+        <button class="btn btn--primary" id="btn-award">+ Award Badge</button>
+      </div>
+      <div id="badges-container"><div class="admin-empty">Loading badges...</div></div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="badge-modal" hidden>
+    <div class="modal">
+      <h3>Award Skill Badge</h3>
+      <form id="badge-form" class="form">
+        <div>
+          <label>Team Member *</label>
+          <select id="badge-member" required>
+            <option value="">Select a member...</option>
+          </select>
+        </div>
+        <div>
+          <label>Skill / Badge Name *</label>
+          <input type="text" id="badge-skill" required placeholder="e.g. Frontend Developer, Python, UI Design">
+        </div>
+        <div>
+          <label>Tasks Completed (optional)</label>
+          <input type="number" id="badge-count" value="1" min="1">
+        </div>
+        <div style="display:flex;gap:0.5rem;margin-top:1rem;">
+          <button type="submit" class="btn btn--primary">Award Badge</button>
+          <button type="button" class="btn btn--outline" id="btn-cancel-badge">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { renderSidebar } from "./../js/admin/sidebar.js";
+    import "./../js/admin/auth.js";
+    import { supabase } from "../js/supabase.js";
+    
+    const container = document.getElementById("badges-container");
+    const modal = document.getElementById("badge-modal");
+    const form = document.getElementById("badge-form");
+    const memberSelect = document.getElementById("badge-member");
+    
+    let allMembers = [];
+    let allBadges = [];
+
+    document.addEventListener("admin:ready", async () => {
+      // Load members for the dropdown
+      const { data: members } = await supabase.from("member_profiles").select("user_id, full_name");
+      allMembers = members || [];
+      memberSelect.innerHTML = '<option value="">Select a member...</option>' + allMembers.map(m => `<option value="${m.user_id}">${m.full_name}</option>`).join("");
+
+      document.getElementById("btn-award").addEventListener("click", () => { form.reset(); modal.hidden = false; });
+      document.getElementById("btn-cancel-badge").addEventListener("click", () => modal.hidden = true);
+      
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const memberId = memberSelect.value;
+        const skill = document.getElementById("badge-skill").value.trim();
+        const count = Number(document.getElementById("badge-count").value);
+
+        if (!memberId || !skill) return;
+
+        const { error } = await supabase.from("member_badges").insert({
+          member_id: memberId,
+          skill_name: skill,
+          tasks_completed: count
+        });
+
+        if (error) { alert(error.message); return; }
+        modal.hidden = true;
+        load();
+      });
+
+      load();
+    });
+
+    async function load() {
+      const { data: badges } = await supabase.from("member_badges").select("*").order("awarded_at", { ascending: false });
+      allBadges = badges || [];
+
+      if (allBadges.length === 0) {
+        container.innerHTML = '<div class="admin-empty">No badges awarded yet. Click "Award Badge" to start.</div>';
+        return;
+      }
+
+      container.innerHTML = '<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Date</th><th>Member</th><th>Badge</th><th>Tasks</th><th>Actions</th></tr></thead><tbody>' + 
+        allBadges.map(b => {
+          const member = allMembers.find(m => m.user_id === b.member_id);
+          const name = member ? member.full_name : "Unknown";
+          return `<tr>
+            <td>${new Date(b.awarded_at).toLocaleDateString()}</td>
+            <td><strong>${name}</strong></td>
+            <td><span style="color:#10B981;font-weight:bold;">✓ ${b.skill_name}</span></td>
+            <td>${b.tasks_completed}</td>
+            <td><button class="btn btn--outline danger" style="padding:0.2rem 0.5rem;font-size:0.7rem;" onclick="deleteBadge('${b.id}')">Delete</button></td>
+          </tr>`;
+        }).join("") + '</tbody></table></div>';
+    }
+
+    window.deleteBadge = async (id) => {
+      if (!confirm("Delete this badge?")) return;
+      const { error } = await supabase.from("member_badges").delete().eq("id", id);
+      if (error) { alert(error.message); return; }
+      load();
+    };
+    
+    renderSidebar("badges.html");
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Open Source Fund - Novanest Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="admin-body">
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-topbar__title">Open Source Fund</h1>
+      <div class="admin-topbar__user" data-admin-email>...</div>
+    </header>
+    <section class="admin-content">
+      <div class="admin-page-head">
+        <div>
+          <h2>Contributions Log</h2>
+          <p>Log your open-source donations. Only amounts you have actually sent should be recorded here.</p>
+        </div>
+        <button class="btn btn--primary" id="btn-new-contrib">+ Log Contribution</button>
+      </div>
+      <div id="os-container"><div class="admin-empty">Loading...</div></div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="os-modal" hidden>
+    <div class="modal">
+      <h3>Log Contribution</h3>
+      <form id="os-form" class="form">
+        <div><label>Project Name *</label><input type="text" id="os-name" required></div>
+        <div><label>Project URL</label><input type="url" id="os-url"></div>
+        <div><label>Amount (KSh) *</label><input type="number" id="os-amount" required></div>
+        <div><label>Date</label><input type="date" id="os-date" required></div>
+        <div style="display:flex;gap:0.5rem;margin-top:1rem;">
+          <button type="submit" class="btn btn--primary">Save</button>
+          <button type="button" class="btn btn--outline" id="btn-cancel-os">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { renderSidebar } from "./../js/admin/sidebar.js";
+    import "./../js/admin/auth.js";
+    import { supabase } from "../js/supabase.js";
+    
+    const container = document.getElementById("os-container");
+    const modal = document.getElementById("os-modal");
+    const form = document.getElementById("os-form");
+    const toast = document.getElementById("toast");
+
+    document.addEventListener("admin:ready", () => {
+      document.getElementById("btn-new-contrib").addEventListener("click", () => { form.reset(); document.getElementById("os-date").valueAsDate = new Date(); modal.hidden = false; });
+      document.getElementById("btn-cancel-os").addEventListener("click", () => modal.hidden = true);
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const { error } = await supabase.from("open_source_contributions").insert({
+          project_name: document.getElementById("os-name").value,
+          project_url: document.getElementById("os-url").value || null,
+          amount_ksh: Number(document.getElementById("os-amount").value),
+          contributed_at: document.getElementById("os-date").value
+        });
+        if (error) { alert(error.message); return; }
+        modal.hidden = true;
+        load();
+      });
+      load();
+    });
+
+    async function load() {
+      const { data } = await supabase.from("open_source_contributions").select("*").order("contributed_at", { ascending: false });
+      if (!data || data.length === 0) { container.innerHTML = '<div class="admin-empty">No contributions logged yet.</div>'; return; }
+      container.innerHTML = '<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Date</th><th>Project</th><th>Amount</th></tr></thead><tbody>' + data.map(r => `<tr><td>${new Date(r.contributed_at).toLocaleDateString()}</td><td><strong>${r.project_name}</strong></td><td style="color:#10B981;font-weight:bold;">KSh ${Number(r.amount_ksh).toLocaleString()}</td></tr>`).join("") + '</tbody></table></div>';
+    }
+    
+    renderSidebar("open-source.html");
+  </script>
+</body>
+</html>

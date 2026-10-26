@@ -14,6 +14,8 @@ export function renderSidebar(activePage) {
     { href: "careers.html",      label: "Careers" },
     { href: "payouts.html",      label: "Payouts" },
     { href: "pricing.html",      label: "Pricing" },
+    { href: "open-source.html",  label: "Open Source" },
+    { href: "badges.html",       label: "Badges" },
     { href: "support.html",      label: "Support" },
     { href: "tutoring.html",     label: "Tutoring" },
     { href: "clients.html",      label: "Client Requests" },

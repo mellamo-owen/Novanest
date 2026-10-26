@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Open Source Fund - Novanest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+<header class="site-header">
+<div class="container nav">
+<a href="index.html" class="nav__logo nav__logo--img"><img src="assets/images/logo.jpg" alt="Novanest" /><span class="nav__logo-text">NOVA<span>NEST</span></span></a>
+<button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+<ul class="nav__menu">
+<li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="projects.html">Projects</a></li><li><a href="tutoring.html">Tutoring</a></li><li><a href="join.html">Join Us</a></li><li><a href="open-source.html">Open Source</a></li><li><a href="https://elimu.novanest.vercel.app" target="_blank">Novanest Elimu</a></li><li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+</header>
+
+<section class="page-header">
+<div class="container">
+<h1>Open Source Fund</h1>
+<p>Novanest Digital Solutions contributes 2% of every client project to the free software that powers our work.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="pricing-card" style="max-width: 600px; margin: 0 auto 3rem; text-align: center; background:#0F172A; border-color:#10B981;">
+  <h2 style="font-size: 3rem; color: #10B981; margin: 0;" id="total-contributed">KSh 0</h2>
+  <p style="color: #94A3B8; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 0.8rem; margin-top: 0.5rem;">Contributed to Open Source</p>
+</div>
+
+<h2 class="section__title" style="text-align: center; margin-bottom: 2rem;">Projects We Support</h2>
+<div id="os-list" style="display: grid; gap: 1rem; max-width: 700px; margin: 0 auto;">
+  <div style="text-align: center; color: #94A3B8;">Loading contributions...</div>
+</div>
+
+<div class="cta" style="margin-top: 4rem;">
+  <h2>We put our money where our mouth is.</h2>
+  <p>If you maintain an open-source project that Novanest uses, <a href="contact.html" style="color: #10B981;">contact us</a>. We prioritize small teams and independent developers.</p>
+</div>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="container">
+<div class="footer__bottom">Copyright <span data-year>2026</span> Novanest Digital Solutions. All rights reserved.</div>
+</div>
+</footer>
+
+<script type="module">
+import { supabase } from "./js/supabase.js";
+import "./js/main.js";
+
+async function loadOS() {
+  const { data } = await supabase.from("open_source_contributions").select("*").order("contributed_at", { ascending: false });
+  if (!data) return;
+  
+  const total = data.reduce((s, r) => s + Number(r.amount_ksh), 0);
+  document.getElementById("total-contributed").textContent = "KSh " + total.toLocaleString();
+  
+  if (data.length === 0) {
+    document.getElementById("os-list").innerHTML = '<div class="card" style="text-align:center;color:#94A3B8;">Contributions will appear here soon.</div>';
+    return;
+  }
+
+  document.getElementById("os-list").innerHTML = data.map(r => `
+    <div style="background:#0F172A; border:1px solid #1E293B; padding:1.5rem; border-radius:12px; display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <h3 style="margin:0 0 0.25rem; color:#FFF;">${r.project_name}</h3>
+        <div style="color:#94A3B8; font-size:0.85rem;">${new Date(r.contributed_at).toLocaleDateString()}</div>
+      </div>
+      <div style="color:#10B981; font-weight:800; font-size:1.2rem;">KSh ${Number(r.amount_ksh).toLocaleString()}</div>
+    </div>
+  `).join("");
+}
+loadOS();
+</script>
+</body>
+</html>
