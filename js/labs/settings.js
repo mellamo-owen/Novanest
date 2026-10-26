@@ -11,12 +11,34 @@ document.addEventListener("labs:ready", (e) => {
 
   document.getElementById("profile-name").value = profile.full_name || "";
   document.getElementById("profile-role").value = profile.role || "";
+  document.getElementById("pay-method").value = profile.payment_method || "M-Pesa";
+  document.getElementById("pay-details").value = profile.payment_details || "";
 
   document.getElementById("change-password-form")
     .addEventListener("submit", handlePasswordChange);
 
   document.getElementById("update-profile-form")
     .addEventListener("submit", handleProfileUpdate);
+
+  // Payment Details Form
+  document.getElementById("payment-details-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const method = document.getElementById("pay-method").value;
+    const details = document.getElementById("pay-details").value.trim();
+    
+    const btn = e.target.querySelector('button');
+    btn.disabled = true; btn.textContent = "Saving...";
+
+    const { error } = await supabase
+      .from("member_profiles")
+      .update({ payment_method: method, payment_details: details })
+      .eq("user_id", window.__labsMember.user.id);
+
+    btn.disabled = false; btn.textContent = "Save Payment Details";
+
+    if (error) { toast("Could not save: " + error.message, "error"); return; }
+    toast("Payment details saved!", "success");
+  });
 });
 
 async function handlePasswordChange(e) {
@@ -75,3 +97,4 @@ function toast(msg, variant) {
   clearTimeout(toast._t);
   toast._t = setTimeout(() => toastEl.classList.remove("is-visible"), 2800);
 }
+

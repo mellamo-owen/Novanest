@@ -46,7 +46,24 @@
       </form>
     </div>
 
-    <div class="labs-card">
+        <div class="labs-card" style="margin-top: 1rem;">
+      <h2>Payment Details</h2>
+      <p style="color:#94A3B8;font-size:0.9rem;">Add your payment details here so the admin can pay you for completed tasks.</p>
+      <form id="payment-details-form" class="form" style="margin-top:1rem;">
+        <div>
+          <label for="pay-method">Payment Method</label>
+          <select id="pay-method" name="payment_method">
+            <option value="M-Pesa">M-Pesa</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+          </select>
+        </div>
+        <div>
+          <label for="pay-details">Phone Number or Bank Account Details</label>
+          <textarea id="pay-details" name="payment_details" rows="3" placeholder="e.g. 0712 345 678 (M-Pesa) or Bank Name: Equity, Acc: 01234567"></textarea>
+        </div>
+        <button type="submit">Save Payment Details</button>
+      </form>
+    </div><div class="labs-card">
       <h2>Update Profile</h2>
       <form id="update-profile-form" class="form" style="margin-top:1rem;">
         <div>
@@ -67,3 +84,4 @@
   <script type="module" src="../js/labs/settings.js"></script>
 </body>
 </html>
+
