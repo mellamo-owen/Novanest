@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // NOVANEST CONFIG
 // ------------------------------------------------------------
 // Public configuration values used across the website.
@@ -13,7 +13,7 @@ export const NOVANEST_CONFIG = {
   companyName: "Novanest Digital Solutions",
   tagline: "Build. Learn. Innovate. Grow.",
 
-  // Support / M-Pesa (MANUAL ONLY — no STK Push, no API)
+  // Support / M-Pesa (MANUAL ONLY � no STK Push, no API)
   mpesaNumber: "0723510672",       
   mpesaName: "Mikowen khaseke",
   supportMinimum: 10,
@@ -30,3 +30,4 @@ export const NOVANEST_CONFIG = {
   supabaseUrl: "https://namwgcigxxnmtbgzmzcv.supabase.co",    //
   supabaseAnonKey: "sb_publishable_XU72J7faw7o80KTzTRWwDA_vZWmo36b"
 };
+

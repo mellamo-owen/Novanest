@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -16,14 +16,14 @@
   <header class="site-header">
     <div class="container nav">
       <a href="index.html" class="nav__logo nav__logo--img">
-        <img src="assets/icons/logo-n.svg" alt="Novanest" />
+        <img src="assets/images/logo.jpg" alt="Novanest" />
         <span class="nav__logo-text">NOVA<span>NEST</span></span>
       </a>
       <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
       <ul class="nav__menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="tutoring.html">Tutoring</a></li>
         <li><a href="join.html">Join Us</a></li>
@@ -32,7 +32,7 @@
     </div>
   </header>
 
-  <section class="hero hero--split">
+  <section class="hero hero--split bg-hero-image">
     <div class="container hero__grid">
       <div>
         <span class="hero__eyebrow">Technology - Education - Innovation</span>
@@ -77,24 +77,36 @@
     </div>
   </section>
 
-  <section class="section section--soft">
+  <section class="section section--soft bg-section-image">
     <div class="container">
       <h2 class="section__title">What We Do</h2>
       <p class="section__subtitle">Two core services - building for businesses, and teaching learners.</p>
-      <div class="grid grid--2">
-        <div class="card">
-          <span class="card__tag">For Businesses</span>
-          <h3 class="card__title">Web Development</h3>
-          <p class="card__text">Business websites, landing pages, portfolio sites, restaurant and school websites, contact forms, responsive design and maintenance.</p>
-          <p style="margin-top:1rem;"><a class="btn btn--primary" href="services.html#web">Request a Website</a></p>
+      <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem;"> 
+          <div class="card">
+            <span class="card__tag">For Businesses</span>
+            <h3 class="card__title">Web Development</h3>
+            <p class="card__text">Business websites, landing pages, portfolio sites, restaurant and school websites, contact forms, responsive design and maintenance.</p>
+            <p style="margin-top:1rem;"><a class="btn btn--primary" href="services.html#web">Request a Website</a></p>
+          </div>
+          <div class="card">
+            <span class="card__tag">For Learners</span>
+            <h3 class="card__title">Online Tutoring</h3>
+            <p class="card__text">One-on-one tutoring in Programming, Computer Science, Mathematics and Physics - explanations, revision and exam preparation.</p>
+            <p style="margin-top:1rem;"><a class="btn btn--primary" href="services.html#tutoring">Request Tutoring</a></p>
+          </div>
+          <div class="card">
+            <span class="card__tag">For Innovators</span>
+            <h3 class="card__title">Novanest Labs</h3>
+            <p class="card__text">A digital space for innovations that solve real-world problems. We experiment, prototype, and launch practical technology.</p>
+            <p style="margin-top:1rem;"><a class="btn btn--primary" href="projects.html">Explore Projects</a></p>
+          </div>
+          <div class="card">
+            <span class="card__tag">For Developers</span>
+            <h3 class="card__title">SaaS & Tech Products</h3>
+            <p class="card__text">We offer SaaS solutions and other tech products that developers and businesses need to use or integrate into their applications.</p>
+            <p style="margin-top:1rem;"><a class="btn btn--primary" href="contact.html#client-form">Inquire Now</a></p>
+          </div>
         </div>
-        <div class="card">
-          <span class="card__tag">For Learners</span>
-          <h3 class="card__title">Online Tutoring</h3>
-          <p class="card__text">One-on-one tutoring in Programming, Computer Science, Mathematics and Physics - explanations, revision and exam preparation.</p>
-          <p style="margin-top:1rem;"><a class="btn btn--primary" href="services.html#tutoring">Request Tutoring</a></p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -111,7 +123,7 @@
     </div>
   </section>
 
-  <section class="section section--soft">
+  <section class="section section--soft bg-section-image">
     <div class="container">
       <h2 class="section__title">Why Novanest</h2>
       <p class="section__subtitle">A young, ambitious, technology-focused company built around learning, collaboration and real results.</p>
@@ -148,7 +160,7 @@
     </div>
   </section>
 
-  <section class="section section--soft">
+  <section class="section section--soft bg-section-image">
     <div class="container">
       <h2 class="section__title">Meet the Founder</h2>
       <div class="founder">
@@ -174,16 +186,22 @@
       <p class="section__subtitle">Help us keep building. Every contribution - from KSh 10 upwards - goes directly towards Novanest projects and innovation.</p>
       <div class="support-box">
         <p style="margin:0;">Send your contribution to:</p>
-        <div class="support-box__mpesa" data-config="mpesaNumber">07XX XXX XXX</div>
+        <div class="support-box__mpesa" data-config="mpesaNumber">+254 723 510 672</div>
         <p class="support-box__note">Minimum support: KSh <span data-config="supportMinimum">10</span><br />Send via M-Pesa, then submit your transaction code so we can verify it.</p>
-        <p style="margin-top:1rem;"><a class="btn btn--primary" href="contact.html#support">Submit Support</a></p>
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+          <p style="margin: 0; font-size: 0.85rem; color: #94A3B8; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Or Bank Transfer</p>
+          <p style="margin: 0.5rem 0 0; font-size: 0.95rem; color: #E2E8F0;"><strong>Bank:</strong> Post Bank</p>
+          <p style="margin: 0.2rem 0 1rem; font-size: 0.95rem; color: #E2E8F0;"><strong>Account Name:</strong> Novanest Digital Solutions</p>
+          <p style="margin: 0.2rem 0 0; font-family: monospace; font-size: 1.1rem; color: #10B981;"><strong>0025060062865</strong></p>
+        </div>
+        <p style="margin-top:1.5rem;"><a class="btn btn--primary" href="contact.html#support">Submit Support</a></p>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="cta">
+      <div class="cta bg-cta-image">
         <h2>Ready to build with Novanest?</h2>
         <p>Whether you need a website, tutoring, or want to join the team - let us talk.</p>
         <div class="hero__actions" style="justify-content:center;">
@@ -205,7 +223,7 @@
           <div class="footer__title">Explore</div>
           <ul class="footer__links">
             <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="team.html">Team</a></li>
             <li><a href="careers.html">Careers</a></li>
@@ -266,3 +284,9 @@
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
+
+
+
+
+
+

@@ -1828,3 +1828,171 @@ a:hover {
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--color-border-dark);
 }
+
+/* PLACEHOLDER BACKGROUND IMAGES */
+.bg-hero-image { background-image: url('../assets/images/hero-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.bg-section-image { background-image: url('../assets/images/section-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.bg-cta-image { background-image: url('../assets/images/cta-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+
+/* ============================================================
+   FIX - Mobile menu dropdown + Hero background
+   ============================================================ */
+
+/* 1. Mobile menu dropdown */
+@media (max-width: 899px) {
+  .site-header { position: relative; }
+  .nav__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1E3A8A;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 100;
+  }
+  .nav__menu.is-open {
+    display: flex;
+  }
+  .nav__menu li { width: 100%; }
+  .nav__menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+  }
+  .nav__menu a:hover { background: rgba(255,255,255,0.1); }
+}
+
+/* 2. Hero image cover */
+.hero.bg-hero-image {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* MOBILE MENU DROPDOWN FIX */
+@media (max-width: 899px) {
+  .site-header { position: relative; z-index: 999; }
+  .nav__menu {
+    position: absolute !important;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1E3A8A !important;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 1000;
+  }
+  .nav__menu.is-open {
+    display: flex !important;
+  }
+  .nav__menu li { width: 100%; }
+  .nav__menu a {
+    display: block;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+  }
+  .nav__menu a:hover { background: rgba(255,255,255,0.15); }
+}
+@media (max-width: 899px) {
+  .site-header { position: relative; z-index: 999; }
+  .nav__menu { position: absolute !important; top: 100%; left: 0; width: 100%; background: #1E3A8A !important; padding: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.4); border-top: 1px solid rgba(255,255,255,0.1); display: none; flex-direction: column; gap: 0.5rem; z-index: 1000; }
+  .nav__menu.is-open { display: flex !important; }
+  .nav__menu li { width: 100%; }
+  .nav__menu a { display: block; padding: 0.85rem 1rem; border-radius: 8px; background: rgba(255,255,255,0.05); }
+  .nav__menu a:hover { background: rgba(255,255,255,0.15); }
+}
+/* FORCE MOBILE DROPDOWN */
+@media (max-width: 899px) {
+  .site-header { position: relative !important; }
+  .nav__menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: #1E3A8A !important;
+    padding: 1rem !important;
+    display: none;
+    flex-direction: column !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+    z-index: 9999 !important;
+  }
+  .nav__menu.is-open {
+    display: flex !important;
+  }
+}
+/* FIX BACKGROUND IMAGES */
+.bg-hero-image, .bg-section-image, .bg-cta-image {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+/* SOFTEN CARD BACKGROUNDS */
+.section .card,
+.section .project-card,
+.section .career-card,
+.section .team-card,
+.split__aside,
+.pricing-card {
+  background: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+/* NAVY BLUE CARDS WITH LIGHT TEXT */
+.section .card,
+.section .project-card,
+.section .career-card,
+.section .team-card,
+.split__aside,
+.pricing-card {
+  background: #0F172A !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #E2E8F0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Fix headings inside cards */
+.section .card h1, .section .card h2, .section .card h3, .section .card h4,
+.section .project-card h1, .section .project-card h2, .section .project-card h3, .section .project-card h4,
+.section .career-card h1, .section .career-card h2, .section .career-card h3, .section .career-card h4,
+.split__aside h3 {
+  color: #FFFFFF !important;
+}
+
+/* Fix paragraph text inside cards */
+.section .card p, .section .card div,
+.section .project-card p, .section .project-card div,
+.section .career-card p, .section .career-card div,
+.split__aside p, .split__aside li {
+  color: #94A3B8 !important;
+}
+
+/* Keep card icons emerald */
+.section .card .card__icon {
+  color: #10B981 !important;
+}
+
+/* Fix the "Categories" list borders */
+.split__aside .subject-list li {
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+
+.bg-section-image .card h1, .bg-section-image .card h2, .bg-section-image .card h3,
+.bg-section-image .project-card h1, .bg-section-image .project-card h2, .bg-section-image .project-card h3 {
+  color: #0F172A !important;
+}
+
+.bg-section-image .card p, .bg-section-image .card div,
+.bg-section-image .project-card p, .bg-section-image .project-card div {
+  color: #4B5563 !important;
+}
