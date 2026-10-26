@@ -4,29 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Dashboard — Novanest Admin</title>
+  <title>Dashboard - Novanest Admin</title>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/responsive.css" />
   <link rel="stylesheet" href="../css/admin.css" />
+  <!-- Chart.js for the graphs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="admin-body">
 
   <main class="admin-main">
     <header class="admin-topbar">
-      <h1 class="admin-topbar__title">Dashboard</h1>
-      <div class="admin-topbar__user" data-admin-email>…</div>
+      <h1 class="admin-topbar__title">Dashboard Overview</h1>
+      <div class="admin-topbar__user" data-admin-email>...</div>
     </header>
 
     <section class="admin-content">
-      <div class="admin-welcome">
-        <h2>Welcome back </h2>
-        <p>
-          This is your private CEO dashboard. Stats, projects, applications
-          and everything else will appear here as we build each stage.
-        </p>
-        <p style="margin-top:1rem;">
-          <a class="btn btn--primary" href="../index.html">View Public Site</a>
-        </p>
+      <div id="dashboard-container">
+        <div class="admin-welcome">
+          <h2>Loading your dashboard...</h2>
+        </div>
       </div>
     </section>
   </main>
@@ -34,7 +31,7 @@
   <script type="module">
     import { renderSidebar } from "./../js/admin/sidebar.js";
     import "./../js/admin/auth.js";
-    import  "./../js/admin/dashboard.js";
+    import "./../js/admin/dashboard.js";
     renderSidebar("dashboard.html");
   </script>
 </body>

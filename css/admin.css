@@ -735,3 +735,101 @@
   font-size: 0.78rem;
   color: #6b7280;
 }
+/* ============================================================
+   DARK FINTECH DASHBOARD UI
+   ============================================================ */
+body.admin-body {
+  background-color: #0B1120 !important; /* Very dark navy */
+  color: #E2E8F0 !important;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  background-color: #0F172A !important;
+  border-right: 1px solid #1E293B !important;
+}
+.admin-nav a {
+  color: #94A3B8 !important;
+}
+.admin-nav a:hover, .admin-nav a.is-active {
+  background-color: #1E293B !important;
+  color: #10B981 !important; /* Emerald accent */
+  border-radius: 8px;
+}
+
+/* Topbar */
+.admin-topbar {
+  background-color: #0B1120 !important;
+  border-bottom: 1px solid #1E293B !important;
+}
+.admin-topbar__title {
+  color: #FFFFFF !important;
+}
+
+/* Content Area */
+.admin-content {
+  background-color: #0B1120 !important;
+}
+
+/* Panels/Cards */
+.admin-welcome, .admin-stat, .stat-card {
+  background-color: #0F172A !important; 
+  border: 1px solid #1E293B !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+}
+.admin-welcome h2, .stat-card__value {
+  color: #FFFFFF !important;
+}
+.admin-welcome p, .stat-card__label {
+  color: #94A3B8 !important;
+}
+
+/* Stat Grid */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+.stat-card__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.stat-card__value {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+/* Chart Grid */
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 900px) {
+  .chart-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+.chart-panel {
+  background-color: #0F172A;
+  border: 1px solid #1E293B;
+  border-radius: 16px;
+  padding: 1.5rem;
+  height: 350px;
+  position: relative;
+}
+.chart-panel h3 {
+  color: #FFFFFF;
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+}
