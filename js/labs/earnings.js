@@ -27,16 +27,20 @@ async function loadEarnings(userId) {
   kpiMonth.textContent = "KSh " + thisMonth.toLocaleString();
   kpiCount.textContent = rows.length.toString();
 
+  // Handle Empty State
   if (!rows.length) {
-    container.innerHTML = '<div class="labs-empty"><strong>No payments yet.</strong></div>';
+    container.innerHTML = '<div class="labs-empty"><strong>No payments yet.</strong>Complete paid tasks to see your earnings here.</div>';
+    const chartBox = document.getElementById("earningsChart").parentElement;
+    chartBox.innerHTML = '<div style="height: 100%; display: flex; align-items: center; justify-content: center; color: #64748B; font-size: 0.9rem;">No data to display</div>';
     return;
   }
 
+  // Handle Table
   container.innerHTML = '<div class="admin-table-wrap"><div class="admin-table-scroll"><table class="admin-table"><thead><tr>' +
     '<th>Date</th><th>Task / Note</th><th>Amount</th><th>Status</th>' +
     '</tr></thead><tbody>' + rows.map(rowHtml).join("") + '</tbody></table></div></div>';
 
-  // Render the Chart
+  // Handle Chart
   const ctx = document.getElementById('earningsChart').getContext('2d');
   const chartData = [...rows].reverse();
   const labels = chartData.map(r => new Date(r.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }));
@@ -53,9 +57,15 @@ async function loadEarnings(userId) {
   });
 }
 
-'<td data-label="Date">' + formatDate(r.created_at) + '</td>' +'<td data-label="Task"><strong>' + escapeHtml(t.title || 'Task Payout') + '</strong></td>' + '<td data-label="Amount"><strong style="color:#10B981;">KSh ' + Number(r.amount || 0).toLocaleString() + '</strong></td>' + '<td data-label="Status"><span class="dash-badge dash-badge--new">' + escapeHtml(r.status || 'Processing') + '</span></td>' + '</tr>';
+function rowHtml(r) {
+  const t = r.tasks || {};
+  return '<tr>' +
+    '<td data-label="Date">' + formatDate(r.created_at) + '</td>' +
+    '<td data-label="Task"><strong>' + escapeHtml(t.title || 'Task Payout') + '</strong></td>' +
+    '<td data-label="Amount"><strong style="color:#10B981;">KSh ' + Number(r.amount || 0).toLocaleString() + '</strong></td>' +
+    '<td data-label="Status"><span class="dash-badge dash-badge--new">' + escapeHtml(r.status || 'Processing') + '</span></td>' +
+  '</tr>';
 }
 
 function formatDate(iso) { return iso ? new Date(iso).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }) : ""; }
 function escapeHtml(str) { return String(str).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;"); }
-
